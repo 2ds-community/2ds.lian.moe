@@ -8,28 +8,96 @@ font-size：字体大小
 
 
 /* 清除所有预设 */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+left-bar,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
-aside {
+left-bar {
     font-size: 2ex;
     line-height: 2;
 }
@@ -45,7 +113,7 @@ html {
 
 h1 {
     font-weight: bold;
-    font-size:4ex;
+    font-size: 4ex;
     padding-left: 2ex;
     padding-top: 2ex;
     /* 测试辅助线 */
@@ -63,9 +131,25 @@ body {
 
 /* 顶部栏 */
 header {
+    display: flex;
+    flex-shrink: 0;
     background-color: #242526;
-    padding: 1em 2em;
     font-size: 1.5em;
+    padding: 1ex;
+    align-items: center;
+}
+
+.upperbar-icon {
+    margin-right: 1ex;
+    width: 4ex;
+    height: 4ex;
+}
+
+.upperbar-title {
+    font-size: 2ex;
+    font-weight: bold;
+    /* 测试辅助线 */
+    border: solid 1px cyan;
 }
 
 /* 中间区域（一级盒） */
@@ -81,8 +165,8 @@ header {
 .second-level-box {
     display: flex;
     /* 左右两侧自动填充为外边距 */
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0;
     background-color: #1b1b1d;
     box-sizing: border-box;
@@ -111,7 +195,7 @@ header {
     background-color: #1b1b1d;
     box-sizing: border-box;
     /* 测试辅助线 */
-    border: solid 2px plum;
+    border: solid 1px plum;
 }
 
 /* 底部信息栏 */
@@ -121,13 +205,13 @@ footer {
     padding: 1em;
     font-size: 0.9em;
     /* 测试辅助线 */
-    border: solid 2px plum;
+    /* border: solid 1px plum; */
     padding-left: auto;
 }
 
 /* 超链接卡片 */
 .card {
-    margin:2ex;
+    margin: 2ex;
     background-color: #242526;
     display: flex;
     flex-direction: column;
@@ -141,13 +225,13 @@ footer {
 }
 
 .card-box {
-    padding:2ex;
-    border: solid 2px cyan;
+    padding: 2ex;
+    border: solid 1px cyan;
 }
 
 .card-box-row-1 {
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     /* 测试辅助线 */
     border: solid 1px greenyellow;
 }
@@ -155,7 +239,7 @@ footer {
 
 .card-box-row-2 {
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     /* 测试辅助线 */
     border: solid 1px greenyellow;
 }
