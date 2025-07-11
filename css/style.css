@@ -6,6 +6,34 @@ margin：外边距
 font-size：字体大小
 */
 
+
+/* 清除所有预设 */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+aside {
+    font-size: 2ex;
+    line-height: 2;
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -13,6 +41,15 @@ html {
     background-color: #1b1b1d;
     font-family: sans-serif;
     color: #ffffff;
+}
+
+h1 {
+    font-weight: bold;
+    font-size:4ex;
+    padding-left: 2ex;
+    padding-top: 2ex;
+    /* 测试辅助线 */
+    /* border: solid 2px orange; */
 }
 
 /* 整体布局为垂直方向的 Flex 盒子 */
@@ -31,17 +68,32 @@ header {
     font-size: 1.5em;
 }
 
-/* 主内容区域（占满剩余空间） */
-.main-content {
+/* 中间区域（一级盒） */
+.first-level-box {
     display: flex;
+    /* 挤占所有页面区域 */
     flex: 1;
-    /* 占据剩余空间，撑满页面 */
+    /* 测试辅助线 */
+    /* border: solid 2px red; */
+}
+
+/* 主内容区域（二级盒） */
+.second-level-box {
+    display: flex;
+    /* 左右两侧自动填充为外边距 */
+    margin-left:auto;
+    margin-right:auto;
+    padding: 0;
+    background-color: #1b1b1d;
+    box-sizing: border-box;
+    /* 测试辅助线 */
+    /* border: solid 2px plum; */
 }
 
 /* 侧边栏 */
 .sidebar {
-    width: 220px;
-    padding: 1em;
+    width: 20ex;
+    padding: 4ex;
     background-color: #1b1b1d;
     box-sizing: border-box;
 }
@@ -55,9 +107,11 @@ header {
 /* 正文 */
 .content {
     flex: 1;
-    padding: 1.5em;
+    padding: 0;
     background-color: #1b1b1d;
     box-sizing: border-box;
+    /* 测试辅助线 */
+    border: solid 2px plum;
 }
 
 /* 底部信息栏 */
@@ -70,6 +124,7 @@ footer {
 
 /* 超链接卡片 */
 .card {
+    margin:2ex;
     background-color: #242526;
     display: flex;
     flex-direction: column;
@@ -79,15 +134,39 @@ footer {
     border-radius: 0.8rem;
     box-shadow: 0 1.5px 3px 0#00000026;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    flex-grow: 0.3;
+    width: 40ex;
+}
+
+.card-box {
+    padding:2ex;
+    border: solid 2px cyan;
+}
+
+.card-box-row-1 {
+    display: flex;
+    flex-wrap:wrap;
+    /* 测试辅助线 */
+    border: solid 1px greenyellow;
+}
+
+
+.card-box-row-2 {
+    display: flex;
+    flex-wrap:wrap;
+    /* 测试辅助线 */
+    border: solid 1px greenyellow;
 }
 
 .card-text-title {
+
     color: #ffffff;
 }
 
 .card-text-discription {
     color: #ffffff;
 }
+
 
 /* 超链接样式 */
 a {
@@ -98,5 +177,4 @@ a {
 
 .card:hover {
     border-color: #1E90FF;
-
 }

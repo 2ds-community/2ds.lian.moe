@@ -1,58 +1,80 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>2d 服官网</title>
+    <!-- rel：relationship(类型)，href：链接 -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>2d 服官网</title>
-  <!-- rel：relationship(类型)，href：链接 -->
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="/css/style.css" />
-
-</head>
-
-<style>
-  /* 当窗口尺寸过小隐藏侧边栏 */
-  @media screen and (max-width: 768px) {
-    .sidebar {
-      display: none;
+  <style>
+    /* 当窗口尺寸过小隐藏侧边栏 */
+    @media screen and (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
     }
-  }
-</style>
+  </style>
 
-<body>
+  <body>
+    <header>2d 服官网</header>
 
-  <header>2d 服官网</header>
+    <div class="first-level-box">
+      <aside class="sidebar">
+        <p>侧边导航</p>
+        <!-- 链接列表 -->
+        <ul>
+          <li><a href="">链接 1</a></li>
+          <li><a href="">链接 2</a></li>
+        </ul>
+      </aside>
 
-  <div class="main-content">
-    <aside class="sidebar">
-      <p>侧边导航</p>
-      <!-- 链接列表 -->
-      <ul>
-        <li><a href="">链接 1</a></li>
-        <li><a href="">链接 2</a></li>
-      </ul>
-    </aside>
+      <div class="divider"></div>
 
-    <div class="divider"></div>
+      <div class="second-level-box">
+        <main class="content">
+          <h1>快速进服</h1>
 
-    <main class="content">
-      <h1>快速进服</h1>
-      <p>
+          <!-- 正文超链接卡片 -->
+          <div class="card-box">
+            <div class="card-box-row-1">
+              <article class="card">
+                <a href="/dl-guide.html" target="_blank">
+                  <h2 class="card-text-title">📂主服客户端下载</h2>
+                  <p class="card-text-discription">整合包：卓越II</p>
+                </a>
+              </article>
 
-        <!-- 正文超链接卡片 -->
-      <article class="card">
-        <a href="/dl-guide.html" target="_blank">
-          <h2 class="card-text-title">📂主服客户端下载</h2>
-          <p class="card-text-discription">整合包：卓越II</p>
-        </a>
-      </article>
+              <article class="card">
+                <a href="/dl-guide.html" target="_blank">
+                  <h2 class="card-text-title">📂副服客户端下载</h2>
+                  <p class="card-text-discription">整合包：冬季救援</p>
+                </a>
+              </article>
+            </div>
 
-      </p>
-    </main>
-  </div>
+            <div class="card-box-row-2">
+              <article class="card">
+                <a href="/dl-guide.html" target="_blank">
+                  <h2 class="card-text-title">📂卡片标题3</h2>
+                  <p class="card-text-discription">描述文本</p>
+                </a>
+              </article>
 
-  <footer>QQ群：137422592</footer>
-</body>
+              <article class="card">
+                <a href="/dl-guide.html" target="_blank">
+                  <h2 class="card-text-title">📂卡片标题4</h2>
+                  <p class="card-text-discription">描述文本</p>
+                </a>
+              </article>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
 
+    <footer>QQ群：137422592</footer>
+  </body>
 </html>
