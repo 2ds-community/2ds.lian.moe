@@ -1,5 +1,12 @@
-html,
-body {
+/* 
+备忘录：
+padding：内边距
+border：边框
+margin：外边距
+font-size：字体大小
+*/
+
+html {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -72,11 +79,11 @@ footer {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card_text_title {
+.card-text-title {
     color: #ffffff;
 }
 
-.card_text_discription {
+.card-text-discription {
     color: #ffffff;
 }
 
