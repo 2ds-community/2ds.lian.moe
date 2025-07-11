@@ -141,15 +141,15 @@ header {
 
 .upperbar-icon {
     margin-right: 1ex;
-    width: 4ex;
-    height: 4ex;
+    width: 3.5ex;
+    height: 3.5ex;
 }
 
 .upperbar-title {
     font-size: 2ex;
     font-weight: bold;
     /* 测试辅助线 */
-    border: solid 1px cyan;
+    /* border: solid 1px cyan; */
 }
 
 /* 中间区域（一级盒） */
@@ -195,7 +195,7 @@ header {
     background-color: #1b1b1d;
     box-sizing: border-box;
     /* 测试辅助线 */
-    border: solid 1px plum;
+    /* border: solid 1px plum; */
 }
 
 /* 底部信息栏 */
@@ -226,14 +226,15 @@ footer {
 
 .card-box {
     padding: 2ex;
-    border: solid 1px cyan;
+    /* 测试辅助线 */
+    /* border: solid 1px cyan; */
 }
 
 .card-box-row-1 {
     display: flex;
     flex-wrap: wrap;
     /* 测试辅助线 */
-    border: solid 1px greenyellow;
+    /* border: solid 1px greenyellow; */
 }
 
 
@@ -241,7 +242,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     /* 测试辅助线 */
-    border: solid 1px greenyellow;
+    /* border: solid 1px greenyellow; */
 }
 
 .card-text-title {
