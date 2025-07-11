@@ -120,6 +120,9 @@ footer {
     text-align: center;
     padding: 1em;
     font-size: 0.9em;
+    /* 测试辅助线 */
+    border: solid 2px plum;
+    padding-left: auto;
 }
 
 /* 超链接卡片 */
@@ -135,7 +138,6 @@ footer {
     box-shadow: 0 1.5px 3px 0#00000026;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     flex-grow: 0.3;
-    width: 40ex;
 }
 
 .card-box {
