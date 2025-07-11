@@ -1,0 +1,161 @@
+:root {
+    --theme-color: #FFFFFF;
+}
+
+::selection {
+    background-color: var(--theme-color);
+    color: #ffffff88;
+}
+
+
+/* 幻灯片样式 */
+
+.slide {
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-size: cover;
+    transition: display 1s ease;
+
+    overflow: hidden;
+}
+
+.slide * {
+    z-index: 5;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide h1 {
+    font-size: 10vh;
+    padding-top: 2vh;
+    padding-left: 5vw;
+    color: var(--theme-color);
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+.slide h2 {
+    font-size: 5vh;
+    width: 80%;
+    padding-top: 2vh;
+    padding-left: 5vw;
+    color: var(--theme-color);
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+.slide p {
+    font-size: 2vw;
+    padding-left: 5vw;
+    color: rgba(255, 255, 255, 0.6);
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+.slide a {
+    color: var(--theme-color);
+    padding-left: 1vw;
+    padding-right: 1vw;
+
+    transition: color 0.3s ease;
+}
+
+.slide a:hover {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* 磨砂通用 */
+
+.prev, .next, .info {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 0.3vw;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    cursor: default;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.prev:hover, .next:hover, .info:hover {
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 前进后退按钮 */
+
+.prev {
+    right: 12.5%;
+}
+
+.next {
+    right: 8%
+}
+
+.prev, .next {
+    font-size: 3.2vw;
+    color: rgba(255, 255, 255, 0.3);
+    text-align: center;
+    justify-content: center;
+
+    width: 4vw;
+    height: 4vw;
+    position: fixed;
+    bottom: 10%;
+
+    cursor: pointer;
+    user-select: none;
+  }
+
+.prev:hover, .next:hover {
+    color: rgba(0, 0, 0, 0.2);
+    transform: translateY(-5%);
+}
+
+/* 信息条 */
+
+.info {
+    width: fit-content;
+    height: 1.5vw;
+    font-size: 1vw;
+    position: fixed;
+    right: 0.5vw;
+    bottom: 0.5vw;
+    color: rgba(255, 255, 255, 0.3)
+}
+
+.info a {
+    padding-left: 0.3vw;
+    padding-right: 0.3vw;
+}
+
+/* 大亚克力板 */
+
+.panel {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    right: 20vw;
+    top:0;
+    z-index: 1;
+
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 0.3vw;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    cursor: default;
+}
+
+#trans-block {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 999;
+
+    display: none;
+    background-color: var(--theme-color);
+    backdrop-filter: blur(10px);
+    
+    transition: backdrop-filter 3s ease;
+}
