@@ -98,7 +98,7 @@ video {
 }
 
 left-bar {
-    font-size: 2ex;
+    font-size: 1rem;
     line-height: 2;
 }
 
@@ -113,9 +113,9 @@ html {
 
 h1 {
     font-weight: bold;
-    font-size: 4ex;
-    padding-left: 2ex;
-    padding-top: 2ex;
+    font-size: 2.4rem;
+    padding-left: 2rem;
+    padding-top: 2rem;
     /* 测试辅助线 */
     /* border: solid 2px orange; */
 }
@@ -135,14 +135,14 @@ header {
     flex-shrink: 0;
     background-color: #242526;
     font-size: 1.5em;
-    padding: 1ex;
+    padding: 1rem;
     align-items: center;
 }
 
 .upperbar-icon {
-    margin-right: 1ex;
-    width: 3.5ex;
-    height: 3.5ex;
+    margin-right: 1rem;
+    width: 3.5rem;
+    height: 3.5rem;
 }
 
 .upperbar-title {
@@ -176,7 +176,7 @@ header {
 
 /* 侧边栏 */
 .sidebar {
-    width: 20ex;
+    width: 15rem;
     padding: 4ex;
     background-color: #1b1b1d;
     box-sizing: border-box;
@@ -211,7 +211,7 @@ footer {
 
 /* 超链接卡片 */
 .card {
-    margin: 2ex;
+    margin: 1.2rem;
     background-color: #242526;
     display: flex;
     flex-direction: column;
@@ -222,10 +222,11 @@ footer {
     box-shadow: 0 1.5px 3px 0#00000026;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     flex-grow: 0.3;
+    width: 15rem;
 }
 
 .card-box {
-    padding: 2ex;
+    padding: 1.2rem;
     /* 测试辅助线 */
     /* border: solid 1px cyan; */
 }
