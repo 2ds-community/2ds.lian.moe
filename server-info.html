@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" main="width=device-width, initial-scale=1" />
+    <title>2d 服官网</title>
+    <!-- rel：relationship(类型)，href：链接 -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/style-reset.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <style>
+    /* 当窗口尺寸过小隐藏侧边栏 */
+    @media screen and (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+    }
+  </style>
+
+  <body>
+    <header>
+      <img class="upperbar-icon" src="images/fanvicon.jpg" />
+      <div class="upperbar-title">2d 服官网</div>
+    </header>
+
+    <div class="first-level-box">
+      <left-bar class="sidebar">
+        <p class="sidebar-title">导航栏</p>
+        <!-- 链接列表 -->
+        <ul>
+          <li><a href="quick-start.html" class="sidebar-text">快速进服</a></li>
+          <li>
+            <a href="server-info.html" class="sidebar-text">服务器介绍</a>
+          </li>
+          <li><a href="" class="sidebar-text">游玩须知</a></li>
+        </ul>
+      </left-bar>
+
+      <div class="divider"></div>
+      <div class="second-level-box">
+        <main class="main">
+          <h1>服务器介绍</h1>
+          <div class="main-text">
+            <p>欢迎游玩2D服！</p>
+            <p>
+              这里是客户端快速下载页，如果你是第一次游玩2D服，建议阅读“服务器介绍”页面。
+            </p>
+            <p>
+              2D服分为主服和副服，主服是生存服长期周目，正版服且正版玩家可邀请盗版玩家。副服是创造服永久周目，中间可能会穿插一些临时周目，仅支持正版玩家。副服原生有港台线路，延迟较低，主服如有需也可加装。主、副服皆使用同一个客户端。
+            </p>
+            <p>
+              服务器开服自2023年冬季，中间换过了很多批玩家，虽然平时玩家较少，但也会尽力保证服务器的长期运营和友好的社区环境。我们是一个包容友爱的社区，在互相尊重的基础上，我们欢迎所有玩家~
+            </p>
+            <p>详细的服务器介绍请查看 MC 百科找服玩页面：2D 服（长期周目）</p>
+            <p></p>您可以加入我们的 QQ交流群来和我们一起聊天和使用机器人功能：137422592</p>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <footer>QQ群：137422592</footer>
+  </body>
+</html>

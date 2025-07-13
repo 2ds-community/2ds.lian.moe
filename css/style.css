@@ -80,6 +80,7 @@ header {
     padding: 0;
     background-color: #1b1b1d;
     box-sizing: border-box;
+    max-width: 800px;
     /* 测试辅助线 */
     /* border: solid 2px plum; */
 }
@@ -203,5 +204,6 @@ a {
     margin-bottom: 1.2rem;
     margin-left: 2.4rem;
     margin-right: 2.4rem;
+    line-height: 2;
 
 }
