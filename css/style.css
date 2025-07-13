@@ -24,7 +24,7 @@ html {
 h1 {
     font-weight: bold;
     font-size: 2.4rem;
-    padding-left: 2rem;
+    padding-left: 2.4rem;
     padding-top: 2rem;
     /* 测试辅助线 */
     /* border: solid 2px orange; */
@@ -92,6 +92,17 @@ header {
     box-sizing: border-box;
 }
 
+.sidebar-title {
+    color: #459df4;
+    line-height: 3;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.sidebar-text {
+    line-height: 2;
+}
+
 /* 侧边栏分割线 */
 .divider {
     width: 1px;
@@ -133,6 +144,7 @@ footer {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     flex-grow: 0.3;
     width: 15rem;
+    line-height: 2;
 }
 
 .card-box {
@@ -157,11 +169,12 @@ footer {
 }
 
 .card-text-title {
-
+    font-weight: bold;
     color: #ffffff;
 }
 
 .card-text-discription {
+    font-size: 0.8rem;
     color: #ffffff;
 }
 
@@ -175,4 +188,12 @@ a {
 
 .card:hover {
     border-color: #1E90FF;
+}
+
+.content_text {
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
+
 }

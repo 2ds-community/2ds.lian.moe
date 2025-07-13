@@ -6,7 +6,7 @@
     <title>2d 服官网</title>
     <!-- rel：relationship(类型)，href：链接 -->
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/css/style_clear.css" />
+    <link rel="stylesheet" href="/css/style-reset.css" />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
 
@@ -27,11 +27,11 @@
 
     <div class="first-level-box">
       <left-bar class="sidebar">
-        <p>侧边导航</p>
+        <p class="sidebar-title">导航栏</p>
         <!-- 链接列表 -->
         <ul>
-          <li><a href="">链接 1</a></li>
-          <li><a href="">链接 2</a></li>
+          <li><a href="" class="sidebar-text">快速进服</a></li>
+          <li><a href="" class="sidebar-text">服务器介绍</a></li>
         </ul>
       </left-bar>
 
@@ -40,21 +40,23 @@
       <div class="second-level-box">
         <main class="content">
           <h1>快速进服</h1>
-
+          <div class="content_text">
+            欢迎游玩2D服！这里是客户端快速下载页，如果你是第一次游玩2D服，建议阅读“服务器介绍”页面。
+          </div>
           <!-- 正文超链接卡片 -->
           <div class="card-box">
             <div class="card-box-row-1">
               <article class="card">
                 <a href="/dl-guide.html" target="_blank">
-                  <h2 class="card-text-title">📂主服客户端下载</h2>
+                  <h2 class="card-text-title">📂主服端下载（不自带启动器）</h2>
                   <p class="card-text-discription">整合包：卓越II</p>
                 </a>
               </article>
 
               <article class="card">
                 <a href="/dl-guide.html" target="_blank">
-                  <h2 class="card-text-title">📂副服客户端下载</h2>
-                  <p class="card-text-discription">整合包：冬季救援</p>
+                  <h2 class="card-text-title">📂主服端下载（自带启动器）</h2>
+                  <p class="card-text-discription">整合包：卓越II</p>
                 </a>
               </article>
             </div>
@@ -62,15 +64,15 @@
             <div class="card-box-row-2">
               <article class="card">
                 <a href="/dl-guide.html" target="_blank">
-                  <h2 class="card-text-title">📂卡片标题3</h2>
-                  <p class="card-text-discription">描述文本</p>
+                  <h2 class="card-text-title">📂副服端下载（不自带启动器）</h2>
+                  <p class="card-text-discription">整合包：冬季救援</p>
                 </a>
               </article>
 
               <article class="card">
                 <a href="/dl-guide.html" target="_blank">
-                  <h2 class="card-text-title">📂卡片标题4</h2>
-                  <p class="card-text-discription">描述文本</p>
+                  <h2 class="card-text-title">📂副服端下载（自带启动器）</h2>
+                  <p class="card-text-discription">整合包：冬季救援</p>
                 </a>
               </article>
             </div>
