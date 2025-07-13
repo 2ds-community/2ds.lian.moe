@@ -24,10 +24,9 @@ html {
 h1 {
     font-weight: bold;
     font-size: 2.4rem;
-    padding-left: 2.4rem;
     padding-top: 2rem;
     /* 测试辅助线 */
-    border: solid 2px orange;
+    /* border: solid 2px orange; */
 }
 
 /* 整体布局为垂直方向的 Flex 盒子 */
@@ -88,15 +87,11 @@ header {
 
 /* 主文字区域（三级盒） */
 .third-level-box {
-    display: flex;
-    flex:1;
-    /* 左右两侧自动填充为外边距 */
-    padding: 0;
-    background-color: #1b1b1d;
-    box-sizing: border-box;
-    max-width: 1000px;
+    margin-top: 1.2rem;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
     /* 测试辅助线 */
-    /* border: solid 2px plum; */
+    /* border: solid 2px cyan; */
 }
 
 /* 侧边栏 */
@@ -127,11 +122,10 @@ header {
 /* 正文 */
 main {
     flex: 1;
-    padding: 1.2rem;
     background-color: #1b1b1d;
     box-sizing: border-box;
     /* 测试辅助线 */
-    border: solid 1px plum;
+    /* border: solid 1px plum; */
 }
 
 .title-discription {
@@ -139,13 +133,15 @@ main {
     margin-bottom: 1.2rem;
     line-height: 2;
     /* 测试辅助线 */
-    border: solid 1px cyan;
+    /* border: solid 1px cyan; */
 }
 
 /* 主内容分割线 */
 .maintext-divider {
     height: 1px;
     background-color: #ffffff;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
 }
 
 /* 底部信息栏 */
@@ -177,16 +173,17 @@ footer {
     flex:1;
 }
 
+/*
 .card-box {
-    /* 测试辅助线 */
-    border: solid 1px cyan;
+
 }
+*/
 
 .card-box-row-1 {
     display: flex;
     flex-wrap: wrap;
     /* 测试辅助线 */
-    border: solid 1px greenyellow;
+    /* border: solid 1px greenyellow; */
 }
 
 
@@ -194,7 +191,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     /* 测试辅助线 */
-    border: solid 1px greenyellow;
+    /* border: solid 1px greenyellow; */
 }
 
 .card-text-title {
