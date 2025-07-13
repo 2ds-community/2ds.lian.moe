@@ -110,10 +110,18 @@ header {
 }
 
 /* 正文 */
-.content {
+main {
     flex: 1;
     padding: 0;
     background-color: #1b1b1d;
+    box-sizing: border-box;
+    /* 测试辅助线 */
+    /* border: solid 1px plum; */
+}
+
+p {
+    flex: 1;
+    padding: 0;
     box-sizing: border-box;
     /* 测试辅助线 */
     /* border: solid 1px plum; */
@@ -190,7 +198,7 @@ a {
     border-color: #1E90FF;
 }
 
-.content_text {
+.main-text {
     margin-top: 1.2rem;
     margin-bottom: 1.2rem;
     margin-left: 2.4rem;
