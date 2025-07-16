@@ -73,7 +73,7 @@ header {
 /* 主内容区域（二级盒） */
 .second-level-box {
     display: flex;
-    flex:1;
+    flex: 1;
     /* 左右两侧自动填充为外边距 */
     margin-left: auto;
     margin-right: auto;
@@ -170,7 +170,7 @@ footer {
     flex-grow: 0.3;
     width: 15rem;
     line-height: 2;
-    flex:1;
+    flex: 1;
 }
 
 /*
