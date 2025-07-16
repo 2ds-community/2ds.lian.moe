@@ -17,7 +17,7 @@
 <nav>       navigation              块级元素    导航栏
 <aside>     aside                   块级元素    侧边栏
 <main>      main                    块级元素    主内容
-
+<img>       image                   内联元素    图片
 
 
 列表标签：
@@ -44,3 +44,4 @@ target      target                  指定链接在何处打开（blank：在新
 href        hypertext-reference     地址
 rel         relationship            链接的种类（一般与href一起用）(全称是relationship)
 title       title                   鼠标悬停信息显示
+alt         alternative-text        图片的替代文本
