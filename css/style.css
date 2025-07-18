@@ -1,9 +1,9 @@
 body {
-    background-image: url("/assets/images/background/3rd-party/bg2.webp");
+    background-image: url("/assets/images/background/3rd-party/bg3.webp");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-position: 0% 55%;
+    background-position: 0% 40%;
   }
   
   .sidenav {
