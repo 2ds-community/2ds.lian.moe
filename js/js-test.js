@@ -1,8 +1,13 @@
-const button = document.querySelector("button");
+document.addEventListener("DOMContentLoaded", () => {
+  function createParagraph() {
+    const para = document.createElement("p");
+    para.textContent = "你点击了按钮！";
+    document.body.appendChild(para);
+  }
 
-button.addEventListener("click", updateName);
+  const buttons = document.querySelectorAll("button");
 
-function updateName() {
-  const name = prompt("请输入新的名字");
-  button.textContent = ` ${name}`;
-}
+  for (const button of buttons) {
+    button.addEventListener("click", createParagraph);
+  }
+});
