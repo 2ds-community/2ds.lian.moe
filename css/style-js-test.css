@@ -36,23 +36,26 @@ body {
     flex-direction: column;
     justify-content: center; /* 内容物水平居中 */
     align-items: center;      /* 内容物垂直居中 */
-    background-color: #242526;
+    background-color: transparent;
     border: 1px solid #444950;
     border-radius: 0.8rem;
     box-shadow: 0 1.5px 3px 0#00000026;
 }
 
 button {
-  background-color: transparent;
+  background-color: #242526;
   color: #ffffff;
   box-shadow: 0 1.5px 3px 0#00000026;
   padding: 3px 10px;
   cursor: pointer;
+  width: 270px;  
+  height:180px;
+  font-size: 32px;
 }
 
 .element-1 {
     margin: 5px;
     padding: 10px;
     border: 1px solid #444950;
-    border-radius: 0.8rem;
+    border-radius: 1.6rem;
 }
