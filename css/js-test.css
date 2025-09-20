@@ -6,40 +6,39 @@ margin：外边距
 font-size：字体大小
 */
 
-
 html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background-color: #1b1b1d;
-    font-family: sans-serif;
-    color: #ffffff;
-    font-family: "helvetica neue", helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #1b1b1d;
+  font-family: sans-serif;
+  color: #ffffff;
+  font-family: "helvetica neue", helvetica, sans-serif;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    display: flex;
-    justify-content: center; /* 内容物水平居中 */
-    align-items: center;      /* 内容物垂直居中 */
-    background-color: #1b1b1d;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* 内容物水平居中 */
+  align-items: center; /* 内容物垂直居中 */
+  background-color: #1b1b1d;
 }
 
 .box-1 {
-    padding:10px;
-    margin: 1.2px;
-    width: 540px;  
-    height:360px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* 内容物水平居中 */
-    align-items: center;      /* 内容物垂直居中 */
-    background-color: transparent;
-    border: 1px solid #444950;
-    border-radius: 0.8rem;
-    box-shadow: 0 1.5px 3px 0#00000026;
+  padding: 10px;
+  margin: 1.2px;
+  width: 540px;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 内容物水平居中 */
+  align-items: center; /* 内容物垂直居中 */
+  background-color: transparent;
+  border: 1px solid #444950;
+  border-radius: 0.8rem;
+  box-shadow: 0 1.5px 3px 0#00000026;
 }
 
 button {
@@ -48,14 +47,19 @@ button {
   box-shadow: 0 1.5px 3px 0#00000026;
   padding: 3px 10px;
   cursor: pointer;
-  width: 270px;  
-  height:180px;
+  width: 270px;
+  height: 180px;
   font-size: 32px;
 }
 
 .element-1 {
-    margin: 5px;
-    padding: 10px;
-    border: 1px solid #444950;
-    border-radius: 1.6rem;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #444950;
+  border-radius: 1.6rem;
+  transition: border-color 0.25s ease; /* 边框过渡效果 */
+}
+
+.element-1:hover {
+  border-color: #02a0a3; /* 悬停时边框颜色变化 */
 }
