@@ -26,7 +26,7 @@ body {
   background-color: #1b1b1d;
 }
 
-.box-1 {
+.box {
   padding: 10px;
   margin: 1.2px;
   width: 540px;
@@ -45,21 +45,17 @@ button {
   background-color: #242526;
   color: #ffffff;
   box-shadow: 0 1.5px 3px 0#00000026;
-  padding: 3px 10px;
   cursor: pointer;
   width: 270px;
   height: 180px;
   font-size: 32px;
-}
-
-.element-1 {
-  margin: 5px;
+  margin: 5px;  
   padding: 10px;
   border: 1px solid #444950;
   border-radius: 1.6rem;
   transition: border-color 0.25s ease; /* 边框过渡效果 */
 }
 
-.element-1:hover {
+button:hover {
   border-color: #02a0a3; /* 悬停时边框颜色变化 */
 }
