@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>Clock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        background: #fff;
+      }
+      #t {
+        font: 700 20vmin/1 ui-monospace, SFMono-Regular, Menlo, Consolas,
+          monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="t">--:--:--</pre>
+    <script>
+      const t = document.getElementById("t");
+      const z = (n) => String(n).padStart(2, "0");
+
+      function render() {
+        const d = new Date();
+        t.textContent = `${z(d.getHours())}:${z(d.getMinutes())}:${z(
+          d.getSeconds()
+        )}`;
+      }
+      function tick() {
+        const ms = 1000 - new Date().getMilliseconds(); // 对齐整秒
+        setTimeout(() => {
+          render();
+          tick();
+        }, ms);
+      }
+      render();
+      tick();
+    </script>
+    <noscript>请启用 JavaScript 以显示时钟。</noscript>
+  </body>
+</html>
