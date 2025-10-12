@@ -44,7 +44,7 @@
         padding: 10px;
         border: 1px solid #444950;
         border-radius: 12px;
-        transition: border-color 0.25s ease; /* 边框过渡效果 */
+        transition: border-color 0.15s ease; /* 边框过渡效果 */
       }
       #card_para {
         margin: 10px;
@@ -62,6 +62,27 @@
       }
       button:hover {
         border-color: #02a0a3; /* 悬停时边框颜色变化 */
+      }
+
+      button.alert {
+        background-color: #a33636;
+      }
+      button.alert:hover {
+        border-color: #661f1f;
+      }
+
+      button:active {
+        transform: scale(0.99);
+        background-color: #2e3136;
+        filter: brightness(1.05) saturate(0.9) contrast(0.98);
+        box-shadow: 0 0.5px 1px 0 rgba(0, 0, 0, 0.35);
+      }
+
+      button.alert:active {
+        transform: scale(0.99);
+        background-color: #c24444;
+        filter: brightness(1.05) saturate(0.9) contrast(0.98);
+        box-shadow: 0 0.5px 1px 0 rgba(0, 0, 0, 0.35);
       }
     </style>
   </head>
@@ -109,6 +130,8 @@
       let count_4 = 0;
       let count_5 = 0;
 
+      let ready_to_confirm_reset = 0;
+
       function btn_1_is_clicked() {
         count_all++;
         count_1++;
@@ -150,6 +173,18 @@
       }
 
       function btn_6_is_clicked() {
+        if (ready_to_confirm_reset === 0) {
+          undo();
+        } else if (ready_to_confirm_reset === 1) {
+          ready_to_confirm_reset = 0;
+          btn_6.textContent = `撤回`;
+          btn_7.textContent = `重置`;
+          btn_7.style.backgroundColor = "";
+          btn_7.classList.remove("alert");
+        }
+      }
+
+      function undo() {
         if (history.length !== 0) {
           if (history[history.length - 1] === 1) {
             count_1--;
@@ -177,6 +212,22 @@
       }
 
       function btn_7_is_clicked() {
+        if (ready_to_confirm_reset === 0) {
+          ready_to_confirm_reset = 1;
+          btn_6.textContent = `取消重置`;
+          btn_7.textContent = `再次点击确认重置`;
+          btn_7.classList.add("alert");
+        } else if (ready_to_confirm_reset === 1) {
+          ready_to_confirm_reset = 0;
+          btn_6.textContent = `撤回`;
+          btn_7.textContent = `重置`;
+          btn_7.style.backgroundColor = "";
+          btn_7.classList.remove("alert");
+          reset();
+        }
+      }
+
+      function reset() {
         count_all = 0;
         count_1 = 0;
         count_2 = 0;
@@ -189,6 +240,7 @@
         subt_3.textContent = `银框：${count_3}`;
         subt_4.textContent = `金框：${count_4}`;
         subt_5.textContent = `钻框：${count_5}`;
+        history.length = 0;
       }
 
       btn_1.addEventListener("click", btn_1_is_clicked);
@@ -198,8 +250,6 @@
       btn_5.addEventListener("click", btn_5_is_clicked);
       btn_6.addEventListener("click", btn_6_is_clicked);
       btn_7.addEventListener("click", btn_7_is_clicked);
-
-      history.length = 0;
     </script>
   </body>
 </html>
