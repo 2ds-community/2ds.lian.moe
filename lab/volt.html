@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>Clock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 宽度撑满页面（移动端适配） -->
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      p {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #1b1b1d;
+        font-family: sans-serif;
+        color: #ffffff;
+        display: flex;
+        justify-content: center; /* 子元素水平居中 */
+        align-items: center; /* 子元素垂直居中 */
+      }
+      #main_card {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        border: 1px solid #444950;
+        border-radius: 12px;
+        background-color: #242526;
+        box-shadow: 0 1.5px 3px 0#00000026;
+        padding: 20px;
+      }
+      button {
+        background-color: #242526;
+        color: #ffffff;
+        box-shadow: 0 1.5px 3px 0#00000026;
+        cursor: pointer;
+        font-size: 24px;
+        margin: 5px;
+        padding: 10px;
+        border: 1px solid #444950;
+        border-radius: 12px;
+        transition: border-color 0.25s ease; /* 边框过渡效果 */
+      }
+      #card_para {
+        margin: 10px;
+      }
+      #card_title {
+        font-size: 24px;
+        margin: 0 10px 10px 10px;
+      }
+      #divide_line {
+        margin: 20px 0 20px 0;
+        width: 100%;
+      }
+      .card_subtitle {
+        font-size: 18px;
+      }
+      button:hover {
+        border-color: #02a0a3; /* 悬停时边框颜色变化 */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main_card">
+      <div id="card_para">
+        <p id="card_title">————————统计————————</p>
+        <p class="card_subtitle" id="subt_0">当前的总数：0</p>
+        <p class="card_subtitle" id="subt_1">无框：0</p>
+        <p class="card_subtitle" id="subt_2">铜框：0</p>
+        <p class="card_subtitle" id="subt_3">银框：0</p>
+        <p class="card_subtitle" id="subt_4">金框：0</p>
+        <p class="card_subtitle" id="subt_5">钻框：0</p>
+      </div>
+      <button type="button" class="card_button" id="btn_1">无框</button>
+      <button type="button" class="card_button" id="btn_2">铜框</button>
+      <button type="button" class="card_button" id="btn_3">银框</button>
+      <button type="button" class="card_button" id="btn_4">金框</button>
+      <button type="button" class="card_button" id="btn_5">钻框</button>
+      <hr id="divide_line" />
+      <button type="button" class="card_button" id="btn_6">撤回</button>
+      <button type="button" class="card_button" id="btn_7">重置</button>
+    </div>
+    <script>
+      let history = []; /* 撤回操作需要历史列表 */
+
+      const subt_0 = document.getElementById("subt_0");
+      const subt_1 = document.getElementById("subt_1");
+      const subt_2 = document.getElementById("subt_2");
+      const subt_3 = document.getElementById("subt_3");
+      const subt_4 = document.getElementById("subt_4");
+      const subt_5 = document.getElementById("subt_5");
+      const btn_1 = document.getElementById("btn_1");
+      const btn_2 = document.getElementById("btn_2");
+      const btn_3 = document.getElementById("btn_3");
+      const btn_4 = document.getElementById("btn_4");
+      const btn_5 = document.getElementById("btn_5");
+      const btn_6 = document.getElementById("btn_6");
+      const btn_7 = document.getElementById("btn_7");
+
+      let count_all = 0;
+      let count_1 = 0;
+      let count_2 = 0;
+      let count_3 = 0;
+      let count_4 = 0;
+      let count_5 = 0;
+
+      function btn_1_is_clicked() {
+        count_all++;
+        count_1++;
+        subt_0.textContent = `当前的总数：${count_all}`;
+        subt_1.textContent = `无框：${count_1}`;
+        history.push(1);
+      }
+
+      function btn_2_is_clicked() {
+        count_all++;
+        count_2++;
+        subt_0.textContent = `当前的总数：${count_all}`;
+        subt_2.textContent = `铜框：${count_2}`;
+        history.push(2);
+      }
+
+      function btn_3_is_clicked() {
+        count_all++;
+        count_3++;
+        subt_0.textContent = `当前的总数：${count_all}`;
+        subt_3.textContent = `银框：${count_3}`;
+        history.push(3);
+      }
+
+      function btn_4_is_clicked() {
+        count_all++;
+        count_4++;
+        subt_0.textContent = `当前的总数：${count_all}`;
+        subt_4.textContent = `金框：${count_4}`;
+        history.push(4);
+      }
+
+      function btn_5_is_clicked() {
+        count_all++;
+        count_5++;
+        subt_0.textContent = `当前的总数：${count_all}`;
+        subt_5.textContent = `钻框：${count_5}`;
+        history.push(5);
+      }
+
+      function btn_6_is_clicked() {
+        if (history.length !== 0) {
+          if (history[history.length - 1] === 1) {
+            count_1--;
+            subt_1.textContent = `无框：${count_1}`;
+          } else if (history[history.length - 1] === 2) {
+            count_2--;
+            subt_2.textContent = `铜框：${count_2}`;
+          } else if (history[history.length - 1] === 3) {
+            count_3--;
+            subt_3.textContent = `银框：${count_3}`;
+          } else if (history[history.length - 1] === 4) {
+            count_4--;
+            subt_4.textContent = `金框：${count_4}`;
+          } else if (history[history.length - 1] === 5) {
+            count_5--;
+            subt_5.textContent = `钻框：${count_5}`;
+          }
+          count_all--;
+          subt_0.textContent = `当前的总数：${count_all}`;
+          history.pop();
+        } else {
+          console.log("撤回失败，历史列表为空");
+          return;
+        }
+      }
+
+      function btn_7_is_clicked() {
+        count_all = 0;
+        count_1 = 0;
+        count_2 = 0;
+        count_3 = 0;
+        count_4 = 0;
+        count_5 = 0;
+        subt_0.textContent = `当前的总数：${count_all}`;
+        subt_1.textContent = `无框：${count_1}`;
+        subt_2.textContent = `铜框：${count_2}`;
+        subt_3.textContent = `银框：${count_3}`;
+        subt_4.textContent = `金框：${count_4}`;
+        subt_5.textContent = `钻框：${count_5}`;
+      }
+
+      btn_1.addEventListener("click", btn_1_is_clicked);
+      btn_2.addEventListener("click", btn_2_is_clicked);
+      btn_3.addEventListener("click", btn_3_is_clicked);
+      btn_4.addEventListener("click", btn_4_is_clicked);
+      btn_5.addEventListener("click", btn_5_is_clicked);
+      btn_6.addEventListener("click", btn_6_is_clicked);
+      btn_7.addEventListener("click", btn_7_is_clicked);
+
+      history.length = 0;
+    </script>
+  </body>
+</html>
