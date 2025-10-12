@@ -2,9 +2,8 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-    <title>Clock</title>
+    <title>Countdown</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- 宽度撑满页面（移动端适配） -->
     <style>
       html,
       body {
@@ -17,10 +16,10 @@
         background: #181818;
       }
       #t {
-        font-weight: 700; /* 粗细（权重） */
-        font-size: 20vmin; /* 大小（屏幕缩放） */
-        line-height: 1; /* 高度（没有间距） */
-        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; /* 字体及字体备选项 */
+        font-weight: 700;
+        font-size: 20vmin;
+        line-height: 1;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         color: #ffffff;
       }
     </style>
@@ -29,26 +28,48 @@
     <pre id="t">--:--:--</pre>
     <script>
       const t = document.getElementById("t");
+
+      // 倒计时目标时间（24小时制）
+      const target = "22:00";
+
+      // 辅助函数：补零
       function z(n) {
         return String(n).padStart(2, "0");
       }
 
+      // 渲染倒计时
       function render() {
-        const d = new Date();
-        t.textContent = `${z(d.getHours())}:${z(d.getMinutes())}:${z(
-          d.getSeconds()
-        )}`;
+        const now = new Date();
+
+        // 获取目标时间（今天的指定时刻）
+        const [h, m] = target.split(":").map(Number);
+        const targetTime = new Date();
+        targetTime.setHours(h, m, 0, 0);
+
+        // 如果目标时间已过，就加一天
+        if (targetTime < now) targetTime.setDate(targetTime.getDate() + 1);
+
+        // 计算剩余时间（毫秒差）
+        const diff = targetTime - now;
+
+        // 转换成小时、分钟、秒
+        const s = Math.floor(diff / 1000);
+        const hh = Math.floor(s / 3600);
+        const mm = Math.floor((s % 3600) / 60);
+        const ss = s % 60;
+
+        // 显示倒计时
+        t.textContent = `${z(hh)}:${z(mm)}:${z(ss)}`;
       }
+
+      // 每秒更新一次
       function tick() {
-        const ms = 1000 - new Date().getMilliseconds(); // 对齐整秒
-        setTimeout(() => {
-          render();
-          tick();
-        }, ms);
+        render();
+        setTimeout(tick, 1000);
       }
+
       render();
       tick();
     </script>
-    <noscript>请启用 JavaScript 以显示时钟。</noscript>
   </body>
 </html>
