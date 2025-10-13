@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <title>Clock</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 宽度撑满页面（移动端适配） -->
     <style>
       html,
       body {
@@ -13,11 +14,14 @@
       body {
         display: grid;
         place-items: center;
-        background: #fff;
+        background: #181818;
       }
       #t {
-        font: 700 20vmin/1 ui-monospace, SFMono-Regular, Menlo, Consolas,
-          monospace;
+        font-weight: 700; /* 粗细（权重） */
+        font-size: 20vmin; /* 大小（屏幕缩放） */
+        line-height: 1; /* 高度（没有间距） */
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; /* 字体及字体备选项 */
+        color: #ffffff;
       }
     </style>
   </head>
@@ -25,7 +29,9 @@
     <pre id="t">--:--:--</pre>
     <script>
       const t = document.getElementById("t");
-      const z = (n) => String(n).padStart(2, "0");
+      function z(n) {
+        return String(n).padStart(2, "0");
+      }
 
       function render() {
         const d = new Date();
