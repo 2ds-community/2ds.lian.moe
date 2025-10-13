@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>Countdown</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        background: #181818;
+      }
+      #t {
+        font-weight: 700;
+        font-size: 20vmin;
+        line-height: 1;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <pre id="t">--:--:--</pre>
+    <script>
+      // 设置永不熄屏
+
+      let wakeLock = null;
+
+      async function keepAwake() {
+        try {
+          wakeLock = await navigator.wakeLock.request("screen");
+          console.log("屏幕保持常亮中");
+          wakeLock.addEventListener("release", () => {
+            console.log("屏幕唤醒锁已释放");
+          });
+        } catch (err) {
+          console.error(`${err.name}, ${err.message}`);
+        }
+      }
+
+      // 页面可见性变化时重新申请
+      document.addEventListener("visibilitychange", async () => {
+        if (wakeLock !== null && document.visibilityState === "visible") {
+          await keepAwake();
+        }
+      });
+
+      // 调用
+      keepAwake();
+
+      const t = document.getElementById("t");
+
+      // 倒计时目标时间（24小时制）
+      const target = "22:00";
+
+      // 辅助函数：补零
+      function z(n) {
+        return String(n).padStart(2, "0");
+      }
+
+      // 渲染倒计时
+      function render() {
+        const now = new Date();
+
+        // 获取目标时间（今天的指定时刻）
+        const [h, m] = target.split(":").map(Number);
+        const targetTime = new Date();
+        targetTime.setHours(h, m, 0, 0);
+
+        // 如果目标时间已过，就加一天
+        if (targetTime < now) targetTime.setDate(targetTime.getDate() + 1);
+
+        // 计算剩余时间（毫秒差）
+        const diff = targetTime - now;
+
+        // 转换成小时、分钟、秒
+        const s = Math.floor(diff / 1000);
+        const hh = Math.floor(s / 3600);
+        const mm = Math.floor((s % 3600) / 60);
+        const ss = s % 60;
+
+        // 显示倒计时
+        t.textContent = `${z(hh)}:${z(mm)}:${z(ss)}`;
+      }
+
+      // 每秒更新一次
+      function tick() {
+        render();
+        setTimeout(tick, 1000);
+      }
+
+      render();
+      tick();
+    </script>
+  </body>
+</html>
