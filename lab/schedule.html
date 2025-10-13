@@ -27,31 +27,15 @@
   <body>
     <pre id="t">--:--:--</pre>
     <script>
-      // 设置永不熄屏
-
-      let wakeLock = null;
-
-      async function keepAwake() {
-        try {
-          wakeLock = await navigator.wakeLock.request("screen");
-          console.log("屏幕保持常亮中");
-          wakeLock.addEventListener("release", () => {
-            console.log("屏幕唤醒锁已释放");
-          });
-        } catch (err) {
-          console.error(`${err.name}, ${err.message}`);
-        }
+      // 设置永不熄屏 最小化常亮方案：加载即申请 + 前台时重申请
+      if ("wakeLock" in navigator) {
+        const request = () =>
+          navigator.wakeLock.request("screen").catch(console.error);
+        request();
+        document.addEventListener("visibilitychange", () => {
+          if (document.visibilityState === "visible") request();
+        });
       }
-
-      // 页面可见性变化时重新申请
-      document.addEventListener("visibilitychange", async () => {
-        if (wakeLock !== null && document.visibilityState === "visible") {
-          await keepAwake();
-        }
-      });
-
-      // 调用
-      keepAwake();
 
       const t = document.getElementById("t");
 
