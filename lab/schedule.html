@@ -39,18 +39,6 @@
     <pre id="t">--:--:--</pre>
     </div>
     <script>
-      // 设置永不熄屏 最小化常亮方案：加载即申请 + 前台时重申请
-      if ("wakeLock" in navigator) {
-        const request = () =>
-          navigator.wakeLock.request("screen").catch(console.error);
-        request();
-        document.addEventListener("visibilitychange", () => {
-          if (document.visibilityState === "visible") request();
-        });
-      }
-
-      const t = document.getElementById("t");
-
       // 倒计时目标时间（24小时制）
       const target = "22:00";
 
