@@ -11,8 +11,8 @@
         margin: 0;
       }
       body {
-        display: grid;
-        place-items: center;
+        display: flex;
+        justify-content: center;
         background: #181818;
       }
       #t {
@@ -22,10 +22,22 @@
         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         color: #ffffff;
       }
+      .card {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        border: 1px solid #444950;
+        border-radius: 12px;
+        background-color: #242526;
+        box-shadow: 0 1.5px 3px 0#00000026;
+        padding: 20px;
+      }
     </style>
   </head>
   <body>
+    <div class="card" id="card_clock">
     <pre id="t">--:--:--</pre>
+    </div>
     <script>
       // 设置永不熄屏 最小化常亮方案：加载即申请 + 前台时重申请
       if ("wakeLock" in navigator) {
