@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <title>Countdown</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/style-reset.css" />
     <style>
       html,
       body {
@@ -12,74 +13,158 @@
       }
       body {
         display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
         background: #181818;
       }
-      #t {
+      #time {
+        flex: 1 1 auto;
+        margin: 0;
         font-weight: 700;
         font-size: 20vmin;
+        text-align: center;
         line-height: 1;
         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         color: #ffffff;
       }
+      #card_box {
+        display: flex;
+        flex-direction: column;
+        width: 95vmin;
+      }
+
       .card {
         display: flex;
-        text-align: center;
-        flex-direction: column;
+        flex-direction: row;
+        flex: 0 1 auto;
+        min-width: min-content;
+        margin: 10px;
+        padding: 20px;
         border: 1px solid #444950;
         border-radius: 12px;
         background-color: #242526;
         box-shadow: 0 1.5px 3px 0#00000026;
-        padding: 20px;
+      }
+      .schedule {
+        font-weight: 500;
+        font-size: 8vmin;
+        line-height: 1;
+        font-family: "DengXian", "Microsoft YaHei", sans-serif;
+        color: #ffffff;
+      }
+      strong {
+        font-weight: 800;
+      }
+      .deco_1 {
+        align-items: center;
+        flex: 1 1 auto; /* 主轴撑满 */
+        align-self: stretch; /* 副轴撑满 */
+        display: flex;
+        align-items: center; /* 上下居中 */
+      }
+      #deco_1_left {
+        justify-content: flex-start; /* 文字靠左（虽然默认就靠左，但是为了对称，还是设置一下） */
+      }
+      #deco_1_right {
+        justify-content: flex-end; /* 文字靠右 */
       }
     </style>
   </head>
   <body>
-    <div class="card" id="card_clock">
-    <pre id="t">--:--:--</pre>
+    <div id="card_box">
+      <div class="card" id="card_clock">
+        <pre id="time">--:--:--</pre>
+      </div>
+      <div class="card" id="card_schedule">
+        <p class="deco_1 schedule" id="deco_1_left">&nbsp;&gt;&nbsp;</p>
+        <p class="schedule" id="schedule_1">当前无日程</p>
+        <p class="deco_1 schedule" id="deco_1_right">&nbsp;&lt;&nbsp;</p>
+      </div>
     </div>
     <script>
-      // 倒计时目标时间（24小时制）
-      const target = "22:00";
+      const t = document.getElementById("time");
+      const scheduleEl = document.getElementById("schedule_1");
 
-      // 辅助函数：补零
-      function z(n) {
-        return String(n).padStart(2, "0");
+      let targetDate = null; // 将由 config.json 决定
+
+      // 补零
+      const z = (n) => String(n).padStart(2, "0");
+
+      // 读取并选择最近日程
+      async function initFromConfig() {
+        try {
+          const res = await fetch("./config.json", { cache: "no-cache" });
+          const cfg = await res.json();
+
+          // 兼容三种结构：
+          // 1) { time, schedule }
+          // 2) { schedules: [ { time, schedule }, ... ] }
+          // 3) [ { time, schedule }, ... ]
+          let list = [];
+          if (Array.isArray(cfg)) list = cfg;
+          else if (Array.isArray(cfg?.schedules)) list = cfg.schedules;
+          else if (cfg?.time && cfg?.schedule) list = [cfg];
+
+          // 只保留“未来或现在”的事件
+          const now = new Date();
+          const valid = list
+            .map((it) => {
+              const d = new Date(it.time);
+              return isNaN(d) ? null : { when: d, what: it.schedule ?? "" };
+            })
+            .filter(Boolean)
+            .filter((it) => it.when >= now)
+            .sort((a, b) => a.when - b.when);
+
+          const next = valid[0];
+
+          if (next) {
+            targetDate = next.when;
+            scheduleEl.textContent = next.what || "（未命名日程）";
+          } else {
+            targetDate = null;
+            scheduleEl.textContent = "None";
+          }
+        } catch (e) {
+          // 读取失败时的降级
+          targetDate = null;
+          scheduleEl.textContent = "None";
+          // 可选：console.error(e);
+        }
       }
 
-      // 渲染倒计时
       function render() {
+        if (!targetDate) {
+          t.textContent = "--:--:--";
+          return;
+        }
         const now = new Date();
+        let diff = targetDate - now;
 
-        // 获取目标时间（今天的指定时刻）
-        const [h, m] = target.split(":").map(Number);
-        const targetTime = new Date();
-        targetTime.setHours(h, m, 0, 0);
+        if (diff < 0) {
+          // 目标已过期
+          t.textContent = "00:00:00";
+          return;
+        }
 
-        // 如果目标时间已过，就加一天
-        if (targetTime < now) targetTime.setDate(targetTime.getDate() + 1);
-
-        // 计算剩余时间（毫秒差）
-        const diff = targetTime - now;
-
-        // 转换成小时、分钟、秒
         const s = Math.floor(diff / 1000);
         const hh = Math.floor(s / 3600);
         const mm = Math.floor((s % 3600) / 60);
         const ss = s % 60;
-
-        // 显示倒计时
         t.textContent = `${z(hh)}:${z(mm)}:${z(ss)}`;
       }
 
-      // 每秒更新一次
       function tick() {
         render();
         setTimeout(tick, 1000);
       }
 
-      render();
-      tick();
+      (async function start() {
+        await initFromConfig(); // 先加载 config 确定目标时间与文案
+        render();
+        tick();
+      })();
     </script>
   </body>
 </html>
