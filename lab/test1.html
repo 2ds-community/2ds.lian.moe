@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <link rel="stylesheet" href="../css/style-reset.css" />
+    <style>
+        #box-1 {
+            border: 2px #000000 solid;
+        }
+
+        #canvas {
+            border: 2px #000000 solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box-1">
+        <canvas id="canvas" width="150" height="150">
+
+        </canvas>
+    </div>
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "red";
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 5;
+
+        ctx.save(); // 保存当前状态
+        ctx.translate(50, 50);
+        ctx.rotate(Math.PI / 4);
+
+        ctx.fillRect(0, 0, 100, 100); // 绘制红色方块（被旋转）
+
+        ctx.restore(); // 回到原状态
+        ctx.strokeRect(0, 0, 100, 100); // 黑框方块，不旋转    
+
+        ctx.fillStyle = "green";  // 点的颜色
+        ctx.fillRect(-4, -4, 9, 9);
+    </script>
+</body>
+
+</html>
