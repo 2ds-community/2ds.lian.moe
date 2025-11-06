@@ -43,6 +43,10 @@ body {
   .sidenav a:hover {
     color: #E2B9C4;
   }
+
+  .sidenav #l10n:hover {
+    color: #8dcebf;
+  }
   
   .main {
     margin-left: 160px;
