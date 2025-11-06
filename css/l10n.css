@@ -3,7 +3,8 @@ html {
 }
 
 body {
-  padding: 18px;
+  padding-left: 18px;
+  padding-right: 18px;
   margin: 0;
   height: 100vh;
   display: flex;
