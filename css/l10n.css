@@ -1,3 +1,8 @@
+:root {
+  --primary: #ba374c;
+  --secondary: #ffffff;
+}
+
 html {
     font-size: 18px;
 }
