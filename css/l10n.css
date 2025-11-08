@@ -17,3 +17,9 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+a {
+  font-family: "Consolas";
+  text-decoration: none;
+  color: var(--primary);
+}
