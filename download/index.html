@@ -1,0 +1,94 @@
+<!doctype html>
+<html style="font-size: 24px">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8" />
+        <title>2d 服下载引导页</title>
+        <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="/css/dl.css" />
+        <script
+            defer
+            src="https://vip.123pan.cn/1812378450/cdn/js/alpine.min.js"
+        ></script>
+        <script src="https://vip.123pan.cn/1812378450/cdn/js/tailwind4.js"></script>
+    </head>
+
+    <body class="bg-gray-100 min-h-screen py-8">
+        <div
+            class="max-w-2xl mx-auto p-8 bg-white border border-gray-300 rounded-lg shadow-lg"
+            x-data="{
+                showAuth: false,
+                show: false
+            }"
+        >
+            <div class="space-y-6">
+                <h1 class="text-lg font-bold">2d 服下载引导页</h1>
+                <a
+                    href="en.html"
+                    class="hover:underline italic font-mono text-pink-700 justify-end"
+                    >Click here for the English version of downloading guide</a
+                >
+                <p>
+                    这里是 2d服客户端下载引导页~<br />
+                    本引导会为您介绍诸如服规等基础信息，以为您接下来的游玩作准备。这只会占用您一到两分钟的时间，但是却至关重要！
+                </p>
+                <div
+                    class="text-pink-700 hover:cursor-pointer hover:underline"
+                    @click="showAuth = true"
+                    x-show="!showAuth"
+                >
+                    如果你准备好了，就点击这段文字开始吧~
+                </div>
+            </div>
+
+            <div
+                class="space-x-6"
+                x-show="showAuth"
+                x-transition:enter="transition ease-out duration-500"
+                x-transition:enter-start="opacity-0 translate-y-4"
+                x-transition:enter-end="opacity-100 translate-y-0"
+            >
+                <p class="font-bold">2d 服是一个正版、公益性的模组服务器</p>
+                <p>
+                    我们过去的周目使用了一款可兼容离线玩家的登录模组（EasyAuth），但是这个模组是
+                    Fabric 模组，而本周目是 Forge
+                    整合包。我们尝试了信雅互联，但很遗憾也无法兼容。
+                </p>
+                <p>
+                    所以目前 2d
+                    服仅支持正版玩家游玩，若以后有离线玩家登录的解决方案了，则会重新开放
+                    <span class="italic">正版玩家邀请离线玩家制度</span
+                    >。<br /><br />
+                </p>
+                <div
+                    class="text-pink-700 hover:cursor-pointer hover:underline"
+                    @click="show = true"
+                    x-show="!show"
+                >
+                    我有正版账户！
+                </div>
+            </div>
+
+            <div
+                class="space-x-6"
+                x-show="show"
+                x-transition:enter="transition ease-out duration-500"
+                x-transition:enter-start="opacity-0 translate-y-4"
+                x-transition:enter-end="opacity-100 translate-y-0"
+            >
+                <p class="font-bold">2d 服是一个包容、友善的服务器社区</p>
+                <p>
+                    2d
+                    服是一个包容的社区，我们欢迎不同性别、年龄、民族、职业、学历、背景的玩家游玩。<br />
+                    每位玩家在被接纳的同时，也相应的需要去接纳来自社区的其他玩家
+                </p>
+                <p>因此，当您在社区里遇到了某些让您不适的人或事时，请</p>
+                <div
+                    class="text-pink-700 hover:cursor-pointer hover:underline"
+                    @click="show = true"
+                    x-show="!show"
+                ></div>
+            </div>
+        </div>
+    </body>
+</html>
