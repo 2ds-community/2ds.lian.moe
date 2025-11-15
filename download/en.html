@@ -1,9 +1,9 @@
 <!doctype html>
-<html>
+<html style="font-size: 24px">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charset="utf-8" />
-        <title>2d 服下载引导页</title>
+        <title>2d Server Download Guide</title>
         <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" href="/css/dl.css" />
         <script
@@ -17,12 +17,182 @@
         <div
             class="max-w-2xl mx-auto p-8 bg-white border border-gray-300 rounded-lg shadow-lg"
             x-data="{
-                contentVisible: false
+                showAuth: false,
+                showRule: false,
+                showNobug: false,
+                showDownload: false,
+                show: false
             }"
         >
-            <div>
-                <h1 class="text-center">2d server download guide page</h1>
-                <p>Choose language</p>
+            <div class="space-y-6">
+                <h1 class="text-lg font-bold">2d Server Download Guide</h1>
+                <a
+                    href="index.html"
+                    class="hover:underline italic font-mono text-pink-700 justify-end"
+                    >点击这里查看中文版下载引导</a
+                >
+                <p>
+                    This page is mostly translated by ClaudeAI (cuz i'm too busy
+                    QAQ)
+                </p>
+                <p>
+                    Welcome to the 2d Server client download guide!<br />
+                    This guide will introduce you to basic information such as
+                    server rules to prepare you for your upcoming gameplay. This
+                    will only take one to two minutes of your time, but it's
+                    extremely important!
+                </p>
+                <div
+                    class="text-pink-700 hover:cursor-pointer hover:underline"
+                    @click="showAuth = true"
+                    x-show="!showAuth"
+                >
+                    If you're ready, click this text to get started~
+                </div>
+            </div>
+
+            <div
+                class="space-x-6"
+                x-show="showAuth"
+                x-transition:enter="transition ease-out duration-500"
+                x-transition:enter-start="opacity-0 translate-y-4"
+                x-transition:enter-end="opacity-100 translate-y-0"
+            >
+                <p class="font-bold">
+                    2d Server is a premium, non-profit modded server
+                </p>
+                <p>
+                    In our previous seasons, we used a login mod (EasyAuth) that
+                    was compatible with offline players, but this mod is a
+                    Fabric mod, while this season uses a Forge modpack. We tried
+                    Sinytra Connector, but unfortunately it was also
+                    incompatible.
+                </p>
+                <p>
+                    Therefore, 2d Server currently only supports premium
+                    (premium) Minecraft players. If we find a solution for
+                    offline player login in the future, we will reopen the
+                    <span class="italic"
+                        >system where premium players can invite offline
+                        players</span
+                    >.<br /><br />
+                </p>
+                <div
+                    class="text-pink-700 hover:cursor-pointer hover:underline"
+                    @click="showRule = true"
+                    x-show="!showRule"
+                >
+                    I have a premium account!
+                </div>
+            </div>
+
+            <div
+                class="space-x-6"
+                x-show="showRule"
+                x-transition:enter="transition ease-out duration-500"
+                x-transition:enter-start="opacity-0 translate-y-4"
+                x-transition:enter-end="opacity-100 translate-y-0"
+            >
+                <p class="font-bold">
+                    2d Server is an inclusive and friendly server community
+                </p>
+                <p>
+                    2d Server is an inclusive community. We welcome players of
+                    different genders, ages, ethnicities, occupations, education
+                    levels, and backgrounds to play.<br />
+                    So please treat others with more patience and tolerance,
+                    while also being mindful of whether your behavior might
+                    affect or offend others.<br />
+                    Overly explicit images, lag-inducing machines, and verbal
+                    harassment are typical negative examples.
+                </p>
+                <br />
+                <p>
+                    We believe that a harmonious and warm community environment
+                    is the most fundamental requirement for a Minecraft
+                    community, more important than anything else. Therefore, 2d
+                    Server doesn't have complicated rules that would restrict
+                    players, only
+                    <span class="font-bold"
+                        >tolerance and respect for others</span
+                    >
+                    is most important. Please take this seriously!
+                </p>
+                <br />
+                <div
+                    class="text-pink-700 hover:cursor-pointer hover:underline"
+                    @click="showNobug = true"
+                    x-show="!showNobug"
+                >
+                    I will be tolerant and respectful to others, and I
+                    understand that if I go too far, I will be warned, punished,
+                    or even expelled!!!
+                </div>
+            </div>
+
+            <div
+                class="space-x-6"
+                x-show="showNobug"
+                x-transition:enter="transition ease-out duration-500"
+                x-transition:enter-start="opacity-0 translate-y-4"
+                x-transition:enter-end="opacity-100 translate-y-0"
+            >
+                <p class="font-bold">2d Server prohibits exploiting any bugs</p>
+                <p>
+                    Since we are a modded server, there are many ways to obtain
+                    materials, so we do not allow the use of any bugs to obtain
+                    materials, including vanilla bugs (such as carpet dupers,
+                    sand dupers, rail dupers, etc.)
+                </p>
+                <br />
+                <div
+                    class="text-pink-700 hover:cursor-pointer hover:underline"
+                    @click="showDownload = true"
+                    x-show="!showDownload"
+                >
+                    Using bugs to duplicate materials, including vanilla bugs,
+                    is extremely unacceptable behavior!!!
+                </div>
+            </div>
+
+            <div
+                class="space-x-6"
+                x-show="showDownload"
+                x-transition:enter="transition ease-out duration-500"
+                x-transition:enter-start="opacity-0 translate-y-4"
+                x-transition:enter-end="opacity-100 translate-y-0"
+            >
+                <p class="font-bold">Thank you for choosing 2d Server!</p>
+                <p>
+                    Click here to download the client:
+                    <a
+                        class="text-pink-700 hover:cursor-pointer underline"
+                        href="https://vip.123pan.cn/1812378450/2ds/resources/download/2d%20%E6%9C%8D%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%88society%20sunlit%20valley%EF%BC%89.zip"
+                        >Direct Download</a
+                    >
+                    |
+                    <a
+                        class="text-pink-700 hover: cursor-pointer underline"
+                        href="https://qm.qq.com/q/MBUe6ewwQ6"
+                        >QQ Group</a
+                    >
+                    |
+                    <a
+                        class="text-pink-700 hover: cursor-pointer underline"
+                        href="https://discord.gg/nRhctNgptC"
+                        >Discord</a
+                    ><br />
+                    Below is some relevant information about this season
+                </p>
+                <br />
+                <p>
+                    Our server is located in Hong Kong, so you may experience
+                    some latency if you are in a region far away from Hong Kong,
+                    We would try to optimize the network.<br />
+                    Most of our players only speak Chinese but we would also
+                    welcome players who speak any other language!<br />
+                    Ping in West US is about 150ms.
+                </p>
             </div>
         </div>
     </body>

@@ -18,6 +18,9 @@
             class="max-w-2xl mx-auto p-8 bg-white border border-gray-300 rounded-lg shadow-lg"
             x-data="{
                 showAuth: false,
+                showRule: false,
+                showNobug: false,
+                showDownload: false,
                 show: false
             }"
         >
@@ -62,8 +65,8 @@
                 </p>
                 <div
                     class="text-pink-700 hover:cursor-pointer hover:underline"
-                    @click="show = true"
-                    x-show="!show"
+                    @click="showRule = true"
+                    x-show="!showRule"
                 >
                     我有正版账户！
                 </div>
@@ -71,7 +74,7 @@
 
             <div
                 class="space-x-6"
-                x-show="show"
+                x-show="showRule"
                 x-transition:enter="transition ease-out duration-500"
                 x-transition:enter-start="opacity-0 translate-y-4"
                 x-transition:enter-end="opacity-100 translate-y-0"
@@ -80,14 +83,83 @@
                 <p>
                     2d
                     服是一个包容的社区，我们欢迎不同性别、年龄、民族、职业、学历、背景的玩家游玩。<br />
-                    每位玩家在被接纳的同时，也相应的需要去接纳来自社区的其他玩家
+                    所以请家人们对待他人多一些耐心，多一些包容，同时也时常注意自己的行为是否有影响和冒犯到他人<br />
+                    过于露骨的图片、卡服的机器和语言骚扰，都是典型的反面例子
                 </p>
-                <p>因此，当您在社区里遇到了某些让您不适的人或事时，请</p>
+                <br />
+                <p>
+                    我们认为和谐、温馨的社区环境是一个 Minecraft
+                    社区最根本的要求，比什么都更重要。 所以 2d
+                    服没有会让玩家束手束脚的繁杂服规，只有
+                    <span class="font-bold">包容和尊重他人</span>
+                    最重要，希望大家认真对待！
+                </p>
+                <br />
                 <div
                     class="text-pink-700 hover:cursor-pointer hover:underline"
-                    @click="show = true"
-                    x-show="!show"
-                ></div>
+                    @click="showNobug = true"
+                    x-show="!showNobug"
+                >
+                    我会包容和尊重他人，并且清楚如果自己太过分是会被警告、处罚乃至驱逐的!!!
+                </div>
+            </div>
+
+            <div
+                class="space-x-6"
+                x-show="showNobug"
+                x-transition:enter="transition ease-out duration-500"
+                x-transition:enter-start="opacity-0 translate-y-4"
+                x-transition:enter-end="opacity-100 translate-y-0"
+            >
+                <p class="font-bold">2d 服禁止利用任何 Bug</p>
+                <p>
+                    因为我们是模组服啦，获取材料的方式很多，所以我们不允许使用任何
+                    Bug 来获取材料，包括原版
+                    Bug（例如刷地毯机、刷沙机、刷铁轨机等）
+                </p>
+                <br />
+                <div
+                    class="text-pink-700 hover:cursor-pointer hover:underline"
+                    @click="showDownload = true"
+                    x-show="!showDownload"
+                >
+                    使用包括原版在内的 Bug 刷材料是非常恶劣的行为!!!
+                </div>
+            </div>
+
+            <div
+                class="space-x-6"
+                x-show="showDownload"
+                x-transition:enter="transition ease-out duration-500"
+                x-transition:enter-start="opacity-0 translate-y-4"
+                x-transition:enter-end="opacity-100 translate-y-0"
+            >
+                <p class="font-bold">感谢您选择 2d 服！</p>
+                <p>
+                    点此下载客户端：<a
+                        class="text-pink-700 hover:cursor-pointer underline"
+                        href="https://vip.123pan.cn/1812378450/2ds/resources/download/2d%20%E6%9C%8D%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%88society%20sunlit%20valley%EF%BC%89.zip"
+                        >直链下载</a
+                    >
+                    |
+                    <a
+                        class="text-pink-700 hover: cursor-pointer underline"
+                        href="https://qm.qq.com/q/MBUe6ewwQ6"
+                        >QQ 群</a
+                    >
+                    |
+                    <a
+                        class="text-pink-700 hover: cursor-pointer underline"
+                        href="https://discord.gg/nRhctNgptC"
+                        >Discord</a
+                    ><br />
+                    下面的是本周目的一些相关信息
+                </p>
+                <br />
+                <p>
+                    由于前两天服务商突然换掉了线路，导致没有大陆网络优化了（服务器在香港），所以在华北、华中的朋友们可能会延迟比较高，这个目前还在想办法解决……
+                    目前的翻译可能怪怪的，等以后会慢慢修补上翻译，最近太忙啦
+                </p>
             </div>
         </div>
     </body>
