@@ -1,6 +1,6 @@
 :root {
     --primary: #ba374c;
-    --secondary: #ffd9d9;
+    --secondary: #ffebeb;
 }
 
 html {
@@ -59,4 +59,17 @@ a {
     background-color: #fff;
     padding-top: 5vh;
     padding-left: 5vw;
+}
+
+.hint {
+  background-color: var(--secondary);
+  border-color: var(--primary);
+
+  width: 80%;
+
+  padding: 4px;
+
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
 }
