@@ -19,6 +19,15 @@ a {
     color: var(--primary);
 }
 
+/*
+    .container is used to cover the whole page;
+    .title is the vertical stripe used to contain the
+    title and something, the content in it should be 
+    stored in the .content;
+    .main is for the page main contents;
+    .hint is a hint frame served as a bulletin
+*/
+
 .container {
     display: flex;
     height: 100vh;
