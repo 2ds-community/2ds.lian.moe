@@ -1,0 +1,63 @@
+:root {
+  --bg: #ffffff;
+  --text: #3f242f;
+  --primary: #db347f;
+  --gray: #7f8c8d;
+  --font-main: system-ui, -apple-system, sans-serif;
+  --max-width: 720px;
+}
+
+/* Simple Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --text: #ecf0f1;
+    --primary: #e25d97;
+    --gray: #95a5a6;
+  }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+a { color: var(--text); text-decoration: none; cursor: pointer;}
+a:hover { color: var(--primary); }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header & Footer */
+.site-header { padding: 2rem 0; border-bottom: 1px solid var(--gray); opacity: 0.8; }
+.site-header .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: 900; font-size: 1.2rem; }
+.site-header nav a { margin-left: 1rem; font-size: 0.9rem; }
+.site-footer { text-align: center; padding: 3rem 0; color: var(--gray); font-size: 0.8rem; }
+
+/* Article List */
+.post-item { margin-bottom: 2rem; display: block; padding: 1rem; border-radius: 8px; transition: background 0.2s; }
+.post-item:hover { background: rgba(127, 140, 141, 0.1); }
+.post-date { color: var(--gray); font-size: 0.85rem; }
+.post-title { font-size: 1.5rem; margin: 0.5rem 0; }
+
+/* Markdown Content Style */
+.markdown-body h1 { font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 1.5rem; line-height: 1.2; }
+.markdown-body h2 { margin-top: 2rem; margin-bottom: 1rem; }
+.markdown-body p { margin-bottom: 1.2rem; }
+.markdown-body blockquote { border-left: 4px solid var(--primary); padding-left: 1rem; color: var(--gray); font-style: italic; }
+
+/* View Transition Animation*/
+::view-transition-old(root) { animation: fade-out 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+::view-transition-new(root) { animation: fade-in 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards; mix-blend-mode: normal; }
+
+@keyframes fade-out { from { opacity: 1; } to { opacity: 0; transform: translateY(-10px); } }
+@keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; } }

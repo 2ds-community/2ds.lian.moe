@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章集散</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="modulepreload" href="./js/app.js">
+  <link rel="modulepreload" href="./js/components.js">
+  <link rel="modulepreload" href="./js/marked.js">
+</head>
+<body>
+
+  <blog-header></blog-header>
+
+  <main class="container" style="min-height: 80vh; padding-top: 2rem;">
+    <div id="app"></div>
+  </main>
+
+  <blog-footer></blog-footer>
+
+  <script type="module" src="./js/components.js"></script>
+  <script type="module" src="./js/app.js"></script>
+
+</body>
+</html>
