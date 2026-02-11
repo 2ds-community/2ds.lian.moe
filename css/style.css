@@ -47,7 +47,10 @@ body {
   .sidenav #l10n:hover {
     color: #8dcebf;
   }
-  
+
+  .sidenav #article:hover {
+    color: #bece8d;
+  }
   .main {
     margin-left: 160px;
     font-size: 26px;
