@@ -4,7 +4,7 @@ class BlogHeader extends HTMLElement {
     this.innerHTML = `
       <header class="site-header">
         <div class="container">
-          <a href="?page=home" class="logo">文章集散 - 2d 服社区</a>
+          <a href="?page=home" class="logo">文章站 - 2d 服社区</a>
           <nav>
             <a href="?page=home">首页</a>
             <a href="https://github.com/2ds-community/2ds.lian.moe" target="_blank">GitHub</a>

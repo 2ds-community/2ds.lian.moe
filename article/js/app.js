@@ -36,7 +36,7 @@ async function renderHome() {
     const res = await fetch('https://1812378450.v.123pan.cn/1812378450/2ds/web/articles/posts.json');
     const posts = await res.json();
     
-    document.title = "文章集散";
+    document.title = "文章站";
     
     const listHtml = posts.map(post => `
       <a href="?page=post&id=${post.id}" class="post-item" onclick="handleLink(event)">
