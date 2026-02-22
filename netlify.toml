@@ -1,5 +1,6 @@
 [functions]
   directory = "netlify/functions"
+  included_files = ["article/js/marked.js"]
 
 [[redirects]]
   from = "/article/p/:id"
