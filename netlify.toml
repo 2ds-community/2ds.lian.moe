@@ -14,12 +14,6 @@
   force = true
 
 [[redirects]]
-  from = "/article/index.html"
-  to = "/article/"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/article"
   to = "/.netlify/functions/article-list"
   status = 200

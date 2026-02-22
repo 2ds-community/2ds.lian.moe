@@ -6,22 +6,10 @@ const {
   renderPage,
   responseHtml,
   renderErrorPage,
-  redirectResponse,
 } = require("./shared");
 
 exports.handler = async (event) => {
   try {
-    const query = event.queryStringParameters || {};
-    const legacyPage = query.page;
-    const legacyId = query.id;
-
-    if ((legacyPage === "post" && legacyId) || (!legacyPage && legacyId)) {
-      return redirectResponse(createArticlePath(legacyId));
-    }
-    if (legacyPage === "home") {
-      return redirectResponse("/article/");
-    }
-
     const posts = await fetchPosts();
     const listHtml = posts
       .map(
