@@ -48,11 +48,18 @@ a:hover { color: var(--primary); }
 .post-item:hover { background: rgba(127, 140, 141, 0.1); }
 .post-date { color: var(--gray); font-size: 0.85rem; }
 .post-title { font-size: 1.5rem; margin: 0.5rem 0; }
+.post-item p { color: var(--gray); }
+.back-link { display: inline-block; margin-bottom: 1rem; font-size: 0.9rem; color: var(--gray); }
+.back-link:hover { color: var(--primary); }
 
 /* Markdown Content Style */
 .markdown-body h1 { font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 1.5rem; line-height: 1.2; }
 .markdown-body h2 { margin-top: 2rem; margin-bottom: 1rem; }
 .markdown-body p { margin-bottom: 1.2rem; }
+.markdown-body ul,
+.markdown-body ol { margin: 0 0 1.2rem 1.5rem; }
+.markdown-body code { background: rgba(127, 140, 141, 0.2); padding: 0.1rem 0.3rem; border-radius: 4px; }
+.markdown-body pre { margin-bottom: 1.2rem; overflow-x: auto; }
 .markdown-body blockquote { border-left: 4px solid var(--primary); padding-left: 1rem; color: var(--gray); font-style: italic; }
 
 /* View Transition Animation*/

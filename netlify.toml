@@ -1,0 +1,32 @@
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/article/p/:id"
+  to = "/.netlify/functions/article-post?id=:id"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/article/sitemap.xml"
+  to = "/.netlify/functions/article-sitemap"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/article/index.html"
+  to = "/article/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/article"
+  to = "/.netlify/functions/article-list"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/article/"
+  to = "/.netlify/functions/article-list"
+  status = 200
+  force = true
