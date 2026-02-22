@@ -3,7 +3,7 @@
 
 [[redirects]]
   from = "/article/p/:id"
-  to = "/.netlify/functions/article-post?id=:id"
+  to = "/.netlify/functions/article-post/:id"
   status = 200
   force = true
 

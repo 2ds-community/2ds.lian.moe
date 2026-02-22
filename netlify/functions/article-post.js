@@ -18,12 +18,50 @@ function pickPostMeta(posts, id) {
   return posts.find((post) => post.id === id) || null;
 }
 
-exports.handler = async (event) => {
+function extractIdFromPath(pathname, marker) {
+  if (!pathname || !pathname.includes(marker)) return null;
+  const idx = pathname.indexOf(marker);
+  const value = pathname.slice(idx + marker.length);
+  if (!value) return null;
+  const segment = value.split("/")[0].split("?")[0].split("#")[0];
+  if (!segment) return null;
+  try {
+    return decodeURIComponent(segment);
+  } catch {
+    return segment;
+  }
+}
+
+function extractId(event) {
   const query = event.queryStringParameters || {};
-  const rawId =
-    query.id ||
-    (event.pathParameters && event.pathParameters.id) ||
-    (event.rawPath && event.rawPath.split("/").pop());
+  if (query.id) return query.id;
+  if (event.pathParameters && event.pathParameters.id) {
+    return event.pathParameters.id;
+  }
+
+  const candidates = [
+    event.path,
+    event.rawPath,
+    event.rawUrl,
+    event.headers && event.headers["x-nf-original-path"],
+    event.headers && event.headers["x-original-url"],
+  ].filter(Boolean);
+
+  for (const value of candidates) {
+    const fromArticleRoute = extractIdFromPath(value, "/article/p/");
+    if (fromArticleRoute) return fromArticleRoute;
+    const fromFunctionRoute = extractIdFromPath(
+      value,
+      "/.netlify/functions/article-post/"
+    );
+    if (fromFunctionRoute) return fromFunctionRoute;
+  }
+
+  return null;
+}
+
+exports.handler = async (event) => {
+  const rawId = extractId(event);
 
   if (!rawId) {
     return redirectResponse("/article/");
