@@ -15,10 +15,9 @@
   <div class="container nav-inner">
     <a href="#" class="nav-logo">2d 服社区</a>
     <ul class="nav-links">
-      <li><a href="#philosophy" title="Philosophy">理念</a></li>
-      <li><a href="#components" title="Components">组件</a></li>
-      <li><a href="#download" title="Download">下载</a></li>
-      <li><a href="docs.html" title="Documentation">文档</a></li>
+      <li><a href="/dl-guide/index.html" title="Download">下载</a></li>
+      <li><a href="/article/index.html" title="article">文章站</a></li>
+      <li><a href="/l10n/index.html" title="l10n">本地化</a></li>
     </ul>
   </div>
 </nav>
@@ -26,205 +25,28 @@
 <!-- Hero -->
 <section class="hero">
   <div class="container">
-    <div class="badge badge-accent" style="margin-bottom:var(--s-md)">HTML · CSS · JS</div>
+    <div class="badge badge-accent" style="margin-bottom:var(--s-md)">公益 · 长期 · 友善</div>
     <h1>
-      <span lang="zh">你好，我是一个网页</span>
-      <span lang="en">Hello, I am a webpage</span>
+      <span lang="zh">欢迎来到 2d 服社区！</span>
+      <span lang="en">Welcome to 2ds Community!</span>
     </h1>
-    <p>没有框架，没有构建工具，只有最纯粹的三件套。<br>
-      我想用最简单的方式，讲一个关于<span class="typed" data-text="优雅与克制"></span>的故事。</p>
-    <p lang="en">No frameworks, no build tools — just the purest trio.<br>
-      I want to tell a story about <em>elegance and restraint</em> in the simplest way.</p>
+    <p>一个温馨的小角落<br>
+      始自 2023 年冬季，与我们一起，<span class="typed" data-text="书写接下来的篇章"></span></p>
+    <p lang="en">A cozy little corner<br>
+      Born in the winter of 2023, <em>keep the story unfolding with us</em><p>
     <div style="display:flex;gap:var(--s-md);justify-content:center;margin-top:var(--s-lg)">
-      <a href="#philosophy" class="btn btn-primary bilingual-inline">
-        <span lang="zh">了解我的理念</span>
-        <span lang="en">My Philosophy</span>
+      <a href="https://1812378450.v.123yx.com/1812378450/2ds/client/2ds-client.exe" class="btn btn-primary bilingual-inline">
+        <span lang="zh">下载客户端</span>
+        <span lang="en">Download</span>
       </a>
       <button class="btn bilingual-inline" data-toast="你好呀 👋 欢迎来到这里" data-toast-en="Hello 👋 Welcome here">
-        <span lang="zh">打个招呼</span>
-        <span lang="en">Say Hi</span>
+        <span lang="zh">加入 QQ 群</span>
+        <span lang="en">Join</span>
       </button>
     </div>
   </div>
 </section>
 
-<!-- Philosophy -->
-<section id="philosophy" class="section">
-  <div class="container">
-    <div class="text-center reveal">
-      <h2>
-        <span lang="zh">设计理念</span>
-        <span lang="en">Design Philosophy</span>
-      </h2>
-      <div class="divider divider-center"></div>
-      <p class="text-muted" style="margin:0 auto var(--s-xl)">
-        <span lang="zh">少即是多。每一行代码都有它存在的理由。</span>
-        <span lang="en">Less is more. Every line of code has its reason to exist.</span>
-      </p>
-    </div>
-    <div class="grid grid-3">
-      <div class="card reveal">
-        <div class="card-icon">◯</div>
-        <h3>
-          <span lang="zh">简约</span>
-          <span lang="en">Simplicity</span>
-        </h3>
-        <p>
-          <span lang="zh">去掉一切不必要的装饰，让内容自己说话。留白不是空洞，而是呼吸的空间。</span>
-          <span lang="en">Strip away all unnecessary decoration and let the content speak for itself. White space is not emptiness — it is room to breathe.</span>
-        </p>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon">◆</div>
-        <h3>
-          <span lang="zh">高雅</span>
-          <span lang="en">Elegance</span>
-        </h3>
-        <p>
-          <span lang="zh">精心挑选的字体、克制的配色、恰到好处的动效。细节之处见品味。</span>
-          <span lang="en">Carefully chosen typography, restrained colors, and just the right amount of motion. Taste lives in the details.</span>
-        </p>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon">⬡</div>
-        <h3>
-          <span lang="zh">模块化</span>
-          <span lang="en">Modularity</span>
-        </h3>
-        <p>
-          <span lang="zh">每个组件独立可复用，像积木一样自由组合。代码整洁，结构清晰。</span>
-          <span lang="en">Each component is independent and reusable, freely composable like building blocks. Clean code, clear structure.</span>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Components Showcase -->
-<section id="components" class="section" style="background:var(--c-bg-alt)">
-  <div class="container">
-    <div class="text-center reveal">
-      <h2>
-        <span lang="zh">组件一览</span>
-        <span lang="en">Component Showcase</span>
-      </h2>
-      <div class="divider divider-center"></div>
-      <p class="text-muted" style="margin:0 auto var(--s-xl)">
-        <span lang="zh">这些可复用的组件，构成了我的全部表达。</span>
-        <span lang="en">These reusable components make up my entire expression.</span>
-      </p>
-    </div>
-
-    <!-- Buttons -->
-    <div class="reveal" style="margin-bottom:var(--s-xl)">
-      <h3 style="margin-bottom:var(--s-md)">按钮 Button</h3>
-      <div style="display:flex;gap:var(--s-md);flex-wrap:wrap;align-items:center">
-        <button class="btn btn-primary" data-toast="这是主要按钮" data-toast-en="This is the primary button">主要操作</button>
-        <button class="btn" data-toast="这是默认按钮" data-toast-en="This is the default button">默认按钮</button>
-        <button class="btn btn-ghost" data-toast="这是幽灵按钮" data-toast-en="This is the ghost button">幽灵按钮</button>
-      </div>
-    </div>
-
-    <!-- Badges -->
-    <div class="reveal" style="margin-bottom:var(--s-xl)">
-      <h3 style="margin-bottom:var(--s-md)">徽章 Badge</h3>
-      <div style="display:flex;gap:var(--s-sm);flex-wrap:wrap">
-        <span class="badge">默认</span>
-        <span class="badge badge-accent">强调</span>
-        <span class="badge badge-green">成功</span>
-      </div>
-    </div>
-
-    <!-- Accordion -->
-    <div class="reveal" style="margin-bottom:var(--s-xl)">
-      <h3 style="margin-bottom:var(--s-md)">手风琴 Accordion</h3>
-      <div class="accordion">
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <span class="accordion-header-text">
-              <span lang="zh">为什么选择原生三件套？</span>
-              <span lang="en">Why choose vanilla HTML/CSS/JS?</span>
-            </span>
-            <span class="accordion-arrow">▼</span>
-          </button>
-          <div class="accordion-body">
-            <span lang="zh">因为最本质的东西往往最有力量。没有编译步骤，没有依赖地狱，打开浏览器就能运行。这种纯粹感，是任何框架都无法替代的。</span>
-            <span lang="en">Because the most fundamental things are often the most powerful. No build steps, no dependency hell — just open the browser and it runs. This sense of purity is irreplaceable by any framework.</span>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <span class="accordion-header-text">
-              <span lang="zh">这些组件可以直接复用吗？</span>
-              <span lang="en">Can these components be reused directly?</span>
-            </span>
-            <span class="accordion-arrow">▼</span>
-          </button>
-          <div class="accordion-body">
-            <span lang="zh">当然。CSS 和 JS 都是模块化设计，只需引入对应的文件，复制 HTML 结构即可使用。没有任何外部依赖。</span>
-            <span lang="en">Absolutely. Both CSS and JS are modular — just import the files and copy the HTML structure. No external dependencies at all.</span>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <span class="accordion-header-text">
-              <span lang="zh">如何自定义主题？</span>
-              <span lang="en">How to customize the theme?</span>
-            </span>
-            <span class="accordion-arrow">▼</span>
-          </button>
-          <div class="accordion-body">
-            <span lang="zh">修改 variables.css 中的 CSS 自定义属性即可。所有颜色、间距、圆角、阴影都通过变量控制，一处修改，全局生效。</span>
-            <span lang="en">Simply modify the CSS custom properties in variables.css. All colors, spacing, radii, and shadows are controlled by variables — change once, apply everywhere.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Tech -->
-<section id="tech" class="section">
-  <div class="container">
-    <div class="text-center reveal">
-      <h2>
-        <span lang="zh">技术细节</span>
-        <span lang="en">Technical Details</span>
-      </h2>
-      <div class="divider divider-center"></div>
-      <p class="text-muted" style="margin:0 auto var(--s-xl)">
-        <span lang="zh">看看我是怎么被构建的。</span>
-        <span lang="en">See how I was built.</span>
-      </p>
-    </div>
-    <div class="grid grid-2">
-      <div class="reveal">
-         
-      </div>
-      <div class="reveal">
-        <div class="card" style="height:100%;display:flex;flex-direction:column;justify-content:center">
-          <h3 style="margin-bottom:var(--s-md)">
-            <span lang="zh">零依赖</span>
-            <span lang="en">Zero Dependencies</span>
-          </h3>
-          <p class="text-muted" style="margin-bottom:var(--s-md)">
-            <span lang="zh">没有 npm install，没有 node_modules。
-            CSS 自定义属性管理主题，IntersectionObserver 驱动动画，
-            原生 DOM API 处理交互。</span>
-            <span lang="en">No npm install, no node_modules.
-            CSS custom properties manage theming, IntersectionObserver drives animations,
-            and native DOM APIs handle interactions.</span>
-          </p>
-          <div style="display:flex;gap:var(--s-sm);flex-wrap:wrap">
-            <span class="badge badge-accent">CSS Variables</span>
-            <span class="badge badge-green">IntersectionObserver</span>
-            <span class="badge">Vanilla JS</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- Footer -->
 <footer class="footer">
