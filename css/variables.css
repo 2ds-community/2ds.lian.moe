@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Noto Sans SC';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../assets/fonts/NotoSansSC-Variable.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../assets/fonts/NotoSerifSC-Variable.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('../assets/fonts/FiraCode-Variable.ttf') format('truetype');
+}
+
+:root {
+  --c-bg: #faf9f7;
+  --c-bg-alt: #f0ede8;
+  --c-text: #2c2c2c;
+  --c-muted: #8a8a8a;
+  --c-accent: #8b7355;
+  --c-accent-hover: #a6896a;
+  --c-green: #6b8f71;
+  --c-border: #e8e4df;
+  --c-white: #fff;
+
+  --f-serif: 'Noto Serif SC', Georgia, serif;
+  --f-sans: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --f-mono: 'Fira Code', 'SF Mono', monospace;
+
+  --s-xs: 0.25rem;
+  --s-sm: 0.5rem;
+  --s-md: 1rem;
+  --s-lg: 2rem;
+  --s-xl: 4rem;
+  --s-2xl: 6rem;
+
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 16px;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.07);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+
+  --ease: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

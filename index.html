@@ -1,68 +1,180 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8">
-  <title>2d 服官网</title>
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2d 服社区</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
 
-<div class="sidenav">
-  <a href="#overview">介绍</a>
-  <a href="#srvs">各服介绍</a>
-  <a href="#download">客户端下载</a>
-  <a href="#invite">邀请盗版玩家</a>
-  <a href="#about">关于</a>
-  <a id="l10n" href="l10n">本地化</a>
-  <a id="article" href="article">文章站</a>
-</div>
+<!-- Nav -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">2d 服社区</a>
+    <ul class="nav-links">
+      <li><a href="#philosophy">理念</a></li>
+      <li><a href="#components">组件</a></li>
+      <li><a href="#download">下载</a></li>
+      <li><a href="docs.html">文档</a></li>
+    </ul>
+  </div>
+</nav>
 
-<div class="main">
-  <p id="overview">
-    <br>欢迎游玩 2d 服，官网正在重写中~
-  </p>
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="badge badge-accent" style="margin-bottom:var(--s-md)">HTML · CSS · JS</div>
+    <h1>你好，我是一个网页</h1>
+    <p>没有框架，没有构建工具，只有最纯粹的三件套。<br>
+      我想用最简单的方式，讲一个关于<span class="typed" data-text="优雅与克制"></span>的故事。</p>
+    <div style="display:flex;gap:var(--s-md);justify-content:center;margin-top:var(--s-lg)">
+      <a href="#philosophy" class="btn btn-primary">了解我的理念</a>
+      <button class="btn" data-toast="你好呀 👋 欢迎来到这里">打个招呼</button>
+    </div>
+  </div>
+</section>
 
-  <p>
-    服务器开服自 2023 年冬季，中间换过了很多批玩家，虽然平时玩家较少，但也会尽力保证服务器的长期运营和友好的社区环境。
-    我们是一个包容友爱的社区，在互相尊重的基础上，我们欢迎所有玩家~
-  </p>
+<!-- Philosophy -->
+<section id="philosophy" class="section">
+  <div class="container">
+    <div class="text-center reveal">
+      <h2>设计理念</h2>
+      <div class="divider divider-center"></div>
+      <p class="text-muted" style="margin:0 auto var(--s-xl)">
+        少即是多。每一行代码都有它存在的理由。
+      </p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card reveal">
+        <div class="card-icon">◯</div>
+        <h3>简约</h3>
+        <p>去掉一切不必要的装饰，让内容自己说话。留白不是空洞，而是呼吸的空间。</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">◆</div>
+        <h3>高雅</h3>
+        <p>精心挑选的字体、克制的配色、恰到好处的动效。细节之处见品味。</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">⬡</div>
+        <h3>模块化</h3>
+        <p>每个组件独立可复用，像积木一样自由组合。代码整洁，结构清晰。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <p>
-    服务器介绍另可参阅我们的 MC 百科找服玩页面和入服引导页：<a href="https://play.mcmod.cn/sv20187784.html">找服玩</a> | <a href="/dl-guide.html" target="_blank">2d 服入服引导页</a><br>
-    您也可以加入我们的 QQ 交流群来和小伙伴们一起聊天和使用机器人功能~：
-    <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=e20I9fLaD_IsW1lYqi2dcaI3d3PEw3PO&authKey=5qXX42Os0eIFVbUFQ8o5nmoOivPFHHjRB%2BACze7cKIWkQByIbLzWXSYER2PTC3rf&noverify=0&group_code=137422592">137422592</a>
-  </p>
-  <h2 id="srvs">各服介绍</h2>
-    <p>
-      2d 服分为主服、副服和创造服，主服是生存服长期周目，副服是轮转周目，创造服是永久周目<br />
-      主服使用 Prominence II RPG 整合包，主要玩法为线性 RPG 和大量的模组，
-      是一个综合性整合包，游戏内容覆盖科技、魔法、建筑、探索等等各个方面。本包的限制较少，
-      模组数量、种类众多，因此适合长期周目的服务器<br />
-    </p>
+<!-- Components Showcase -->
+<section id="components" class="section" style="background:var(--c-bg-alt)">
+  <div class="container">
+    <div class="text-center reveal">
+      <h2>组件一览</h2>
+      <div class="divider divider-center"></div>
+      <p class="text-muted" style="margin:0 auto var(--s-xl)">
+        这些可复用的组件，构成了我的全部表达。
+      </p>
+    </div>
 
-  <h2 id="download">客户端下载</h2>
-    <p>点击前往入服引导：<a href="/dl-guide.html" target="_blank">2d 服入服引导页</a></p>
+    <!-- Buttons -->
+    <div class="reveal" style="margin-bottom:var(--s-xl)">
+      <h3 style="margin-bottom:var(--s-md)">按钮 Button</h3>
+      <div style="display:flex;gap:var(--s-md);flex-wrap:wrap;align-items:center">
+        <button class="btn btn-primary" data-toast="这是主要按钮">主要操作</button>
+        <button class="btn" data-toast="这是默认按钮">默认按钮</button>
+        <button class="btn btn-ghost" data-toast="这是幽灵按钮">幽灵按钮</button>
+      </div>
+    </div>
 
-  <h2 id="invite">邀请盗版玩家</h2>
-    <p>2d 主服、副服皆支持正版玩家邀请其他没有正版的玩家游玩。只需要正版玩家联系管理员获得<strong>离线注册密码</strong>，离线玩家就可以使用该密码注册离线账户进行游玩</p>
-    <p>需要注意的是，正版玩家需要为所邀请的离线玩家担保，当被邀请的离线玩家违反服规时，邀请人会受到与被邀请人相同的惩罚</p>
+    <!-- Badges -->
+    <div class="reveal" style="margin-bottom:var(--s-xl)">
+      <h3 style="margin-bottom:var(--s-md)">徽章 Badge</h3>
+      <div style="display:flex;gap:var(--s-sm);flex-wrap:wrap">
+        <span class="badge">默认</span>
+        <span class="badge badge-accent">强调</span>
+        <span class="badge badge-green">成功</span>
+      </div>
+    </div>
 
-    <p><strong>如何使用离线注册密码</strong>：获取到离线注册密码后，在启动器中选择离线登录并启动，然后直接进入服务器即可。id 可任取，但不可取中文。如果进不去服务器，请截图所显示的页面并联系管理员（可以直接在群里说，会有人帮忙哒）。进入服务器后，在聊天框中输入 /reg 离线注册密码 密码 密码 并回车即可。其中，离线注册密码是由正版玩家向管理员申请的，密码则是离线玩家自己想要设定的密码。如 /reg 2ds-offline-abcdef henanquandemima henanquandemima</p>
-  <h2 id="about">关于</h2>
-    <p>如果您遇到了任何问题，请直接通过 QQ 群或其他途径联系我们，我们很乐意提供帮助！<br />
-      您也可以直接在服务器里发讯息，QQ 群和服务器讯息和互通的，只是不一定会有人能及时回复，可能等回复时您已经下线了;;</p>
+    <!-- Accordion -->
+    <div class="reveal" style="margin-bottom:var(--s-xl)">
+      <h3 style="margin-bottom:var(--s-md)">手风琴 Accordion</h3>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">
+            为什么选择原生三件套？
+            <span class="accordion-arrow">▼</span>
+          </button>
+          <div class="accordion-body">
+            因为最本质的东西往往最有力量。没有编译步骤，没有依赖地狱，打开浏览器就能运行。这种纯粹感，是任何框架都无法替代的。
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            这些组件可以直接复用吗？
+            <span class="accordion-arrow">▼</span>
+          </button>
+          <div class="accordion-body">
+            当然。CSS 和 JS 都是模块化设计，只需引入对应的文件，复制 HTML 结构即可使用。没有任何外部依赖。
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            如何自定义主题？
+            <span class="accordion-arrow">▼</span>
+          </button>
+          <div class="accordion-body">
+            修改 variables.css 中的 CSS 自定义属性即可。所有颜色、间距、圆角、阴影都通过变量控制，一处修改，全局生效。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-</div>
-   
- 
+<!-- Tech -->
+<section id="tech" class="section">
+  <div class="container">
+    <div class="text-center reveal">
+      <h2>技术细节</h2>
+      <div class="divider divider-center"></div>
+      <p class="text-muted" style="margin:0 auto var(--s-xl)">
+        看看我是怎么被构建的。
+      </p>
+    </div>
+    <div class="grid grid-2">
+      <div class="reveal">
+         
+      </div>
+      <div class="reveal">
+        <div class="card" style="height:100%;display:flex;flex-direction:column;justify-content:center">
+          <h3 style="margin-bottom:var(--s-md)">零依赖</h3>
+          <p class="text-muted" style="margin-bottom:var(--s-md)">
+            没有 npm install，没有 node_modules。
+            CSS 自定义属性管理主题，IntersectionObserver 驱动动画，
+            原生 DOM API 处理交互。
+          </p>
+          <div style="display:flex;gap:var(--s-sm);flex-wrap:wrap">
+            <span class="badge badge-accent">CSS Variables</span>
+            <span class="badge badge-green">IntersectionObserver</span>
+            <span class="badge">Vanilla JS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2026 2d 服社区 | Claude Code 自愿编写</p>
+  </div>
+</footer>
 
-
-
-
-
-
-
-
+<script src="js/components.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

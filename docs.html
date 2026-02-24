@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>框架文档 | 2d 服社区</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    /* ── Docs-specific styles ── */
+    .docs-body { padding-top: 80px; }
+    .docs-layout { display: flex; gap: var(--s-xl); max-width: 1200px; margin: 0 auto; padding: var(--s-lg); }
+    .docs-sidebar {
+      position: sticky; top: 80px; align-self: flex-start;
+      width: 220px; flex-shrink: 0; max-height: calc(100vh - 100px); overflow-y: auto;
+      padding: var(--s-md) 0;
+    }
+    .docs-sidebar ul { list-style: none; }
+    .docs-sidebar li { margin-bottom: 2px; }
+    .docs-sidebar a {
+      display: block; padding: 0.35rem 0.8rem; border-radius: var(--r-sm);
+      color: var(--c-muted); font-size: 0.85rem; transition: all var(--ease);
+    }
+    .docs-sidebar a:hover { color: var(--c-text); background: var(--c-bg-alt); }
+    .docs-sidebar a.active { color: var(--c-accent); background: rgba(139,115,85,0.08); font-weight: 500; }
+    .docs-sidebar .sidebar-title {
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--c-muted); padding: 0.8rem 0.8rem 0.3rem; font-weight: 600;
+    }
+    .docs-main { flex: 1; min-width: 0; }
+    .docs-section { margin-bottom: var(--s-2xl); }
+    .docs-section > h2 { margin-bottom: var(--s-md); padding-bottom: var(--s-sm); border-bottom: 1px solid var(--c-border); }
+    .docs-section > h3 { margin: var(--s-lg) 0 var(--s-md); color: var(--c-accent); }
+    .docs-section p { color: var(--c-muted); margin-bottom: var(--s-md); }
+    .demo-box {
+      border: 1px solid var(--c-border); border-radius: var(--r-md);
+      margin-bottom: var(--s-md); overflow: hidden;
+    }
+    .demo-preview { padding: var(--s-lg); background: var(--c-white); }
+    .demo-code {
+      border-top: 1px solid var(--c-border); background: #2c2c2c; color: #e8e4df;
+      padding: var(--s-md) var(--s-lg); font-family: var(--f-mono); font-size: 0.8rem;
+      line-height: 1.7; overflow-x: auto; white-space: pre;
+    }
+    .var-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-bottom: var(--s-md); }
+    .var-table th, .var-table td { text-align: left; padding: 0.6rem 1rem; border-bottom: 1px solid var(--c-border); }
+    .var-table th { color: var(--c-muted); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .var-table code { font-family: var(--f-mono); font-size: 0.82rem; color: var(--c-accent); }
+    .color-dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; vertical-align: middle; margin-right: 6px; border: 1px solid var(--c-border); }
+    .file-tree { font-family: var(--f-mono); font-size: 0.85rem; line-height: 2; color: var(--c-muted); }
+    .file-tree span { color: var(--c-accent); }
+    @media (max-width: 768px) {
+      .docs-sidebar { display: none; }
+      .docs-layout { padding: var(--s-md); }
+    }
+  </style>
+</head>
+<body class="docs-body">
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">2d 服社区</a>
+    <ul class="nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="#quick-start">快速开始</a></li>
+      <li><a href="#variables">变量</a></li>
+      <li><a href="#components-section">组件</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="docs-layout">
+
+<!-- Sidebar -->
+<aside class="docs-sidebar">
+  <div class="sidebar-title">起步</div>
+  <ul>
+    <li><a href="#quick-start">快速开始</a></li>
+    <li><a href="#file-structure">文件结构</a></li>
+  </ul>
+  <div class="sidebar-title">设计令牌</div>
+  <ul>
+    <li><a href="#variables">CSS 变量</a></li>
+    <li><a href="#colors">颜色</a></li>
+    <li><a href="#typography">字体</a></li>
+    <li><a href="#spacing">间距</a></li>
+  </ul>
+  <div class="sidebar-title">布局</div>
+  <ul>
+    <li><a href="#container">容器</a></li>
+    <li><a href="#grid">栅格</a></li>
+    <li><a href="#utilities">工具类</a></li>
+  </ul>
+  <div class="sidebar-title">组件</div>
+  <ul>
+    <li><a href="#nav-comp">导航栏 Nav</a></li>
+    <li><a href="#hero-comp">主视觉 Hero</a></li>
+    <li><a href="#btn-comp">按钮 Button</a></li>
+    <li><a href="#card-comp">卡片 Card</a></li>
+    <li><a href="#badge-comp">徽章 Badge</a></li>
+    <li><a href="#accordion-comp">手风琴 Accordion</a></li>
+    <li><a href="#toast-comp">消息提示 Toast</a></li>
+    <li><a href="#divider-comp">分割线 Divider</a></li>
+    <li><a href="#code-comp">代码块 Code Block</a></li>
+    <li><a href="#reveal-comp">滚动动画 Reveal</a></li>
+    <li><a href="#typed-comp">打字机 Typed</a></li>
+  </ul>
+  <div class="sidebar-title">JavaScript</div>
+  <ul>
+    <li><a href="#js-init">初始化</a></li>
+    <li><a href="#js-api">API 参考</a></li>
+  </ul>
+</aside>
+
+<!-- Main Content -->
+<main class="docs-main">
+
+<!-- ════════ Quick Start ════════ -->
+<div id="quick-start" class="docs-section">
+  <h2>快速开始</h2>
+  <p>只需引入三个 CSS 文件和两个 JS 文件，即可使用全部组件。零依赖，零构建，打开浏览器就能跑。</p>
+  <div class="demo-box">
+    <div class="demo-code">&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-CN"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;我的页面&lt;/title&gt;
+  &lt;!-- 1. 引入样式 --&gt;
+  &lt;link rel="stylesheet" href="css/variables.css"&gt;
+  &lt;link rel="stylesheet" href="css/base.css"&gt;
+  &lt;link rel="stylesheet" href="css/components.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- 你的内容 --&gt;
+
+  &lt;!-- 2. 引入脚本 --&gt;
+  &lt;script src="js/components.js"&gt;&lt;/script&gt;
+  &lt;script src="js/app.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div>
+  </div>
+</div>
+
+<!-- ════════ File Structure ════════ -->
+<div id="file-structure" class="docs-section">
+  <h2>文件结构</h2>
+  <p>整个框架只有 5 个文件，职责清晰。</p>
+  <div class="demo-box">
+    <div class="demo-code" style="line-height:2.2">├── css/
+│   ├── <span style="color:#ce9178">variables.css</span>   ← 设计令牌：颜色、字体、间距、圆角、阴影
+│   ├── <span style="color:#ce9178">base.css</span>        ← 重置样式 + 排版 + 布局工具类 + 动画
+│   └── <span style="color:#ce9178">components.css</span>  ← 所有 UI 组件样式
+├── js/
+│   ├── <span style="color:#ce9178">components.js</span>  ← 可复用组件逻辑（Accordion、Toast、Reveal…）
+│   └── <span style="color:#ce9178">app.js</span>         ← 页面初始化 + 打字机效果
+└── assets/fonts/          ← 本地字体文件</div>
+  </div>
+</div>
+
+<!-- ════════ CSS Variables ════════ -->
+<div id="variables" class="docs-section">
+  <h2>CSS 变量系统</h2>
+  <p>所有视觉属性都通过 <code>:root</code> 上的 CSS 自定义属性控制。修改 <code>variables.css</code> 即可全局换肤。</p>
+
+  <h3 id="colors">颜色</h3>
+  <table class="var-table">
+    <thead><tr><th>变量</th><th>值</th><th>用途</th></tr></thead>
+    <tbody>
+      <tr><td><code>--c-bg</code></td><td><span class="color-dot" style="background:#faf9f7"></span>#faf9f7</td><td>页面背景</td></tr>
+      <tr><td><code>--c-bg-alt</code></td><td><span class="color-dot" style="background:#f0ede8"></span>#f0ede8</td><td>交替背景（区块区分）</td></tr>
+      <tr><td><code>--c-text</code></td><td><span class="color-dot" style="background:#2c2c2c"></span>#2c2c2c</td><td>正文文字</td></tr>
+      <tr><td><code>--c-muted</code></td><td><span class="color-dot" style="background:#8a8a8a"></span>#8a8a8a</td><td>次要文字</td></tr>
+      <tr><td><code>--c-accent</code></td><td><span class="color-dot" style="background:#8b7355"></span>#8b7355</td><td>主题强调色</td></tr>
+      <tr><td><code>--c-accent-hover</code></td><td><span class="color-dot" style="background:#a6896a"></span>#a6896a</td><td>强调色悬停态</td></tr>
+      <tr><td><code>--c-green</code></td><td><span class="color-dot" style="background:#6b8f71"></span>#6b8f71</td><td>成功/积极状态</td></tr>
+      <tr><td><code>--c-border</code></td><td><span class="color-dot" style="background:#e8e4df"></span>#e8e4df</td><td>边框</td></tr>
+      <tr><td><code>--c-white</code></td><td><span class="color-dot" style="background:#fff"></span>#fff</td><td>卡片/按钮背景</td></tr>
+    </tbody>
+  </table>
+
+  <h3 id="typography">字体</h3>
+  <table class="var-table">
+    <thead><tr><th>变量</th><th>字体族</th><th>用途</th></tr></thead>
+    <tbody>
+      <tr><td><code>--f-serif</code></td><td>Noto Serif SC</td><td>标题（h1 ~ h3）</td></tr>
+      <tr><td><code>--f-sans</code></td><td>Noto Sans SC</td><td>正文</td></tr>
+      <tr><td><code>--f-mono</code></td><td>Fira Code</td><td>代码块</td></tr>
+    </tbody>
+  </table>
+  <p>三款字体均以可变字重（Variable Font）本地加载，无需网络请求。</p>
+
+  <h3 id="spacing">间距 · 圆角 · 阴影</h3>
+  <table class="var-table">
+    <thead><tr><th>变量</th><th>值</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td><code>--s-xs</code></td><td>0.25rem</td><td>极小间距</td></tr>
+      <tr><td><code>--s-sm</code></td><td>0.5rem</td><td>小间距</td></tr>
+      <tr><td><code>--s-md</code></td><td>1rem</td><td>中间距（基准）</td></tr>
+      <tr><td><code>--s-lg</code></td><td>2rem</td><td>大间距</td></tr>
+      <tr><td><code>--s-xl</code></td><td>4rem</td><td>超大间距</td></tr>
+      <tr><td><code>--s-2xl</code></td><td>6rem</td><td>区块间距</td></tr>
+      <tr><td><code>--r-sm</code></td><td>4px</td><td>小圆角</td></tr>
+      <tr><td><code>--r-md</code></td><td>8px</td><td>中圆角</td></tr>
+      <tr><td><code>--r-lg</code></td><td>16px</td><td>大圆角</td></tr>
+      <tr><td><code>--shadow-sm</code></td><td>0 1px 3px …</td><td>轻微阴影</td></tr>
+      <tr><td><code>--shadow-md</code></td><td>0 4px 16px …</td><td>中等阴影（卡片悬停）</td></tr>
+      <tr><td><code>--shadow-lg</code></td><td>0 8px 30px …</td><td>强阴影</td></tr>
+      <tr><td><code>--ease</code></td><td>0.3s cubic-bezier(…)</td><td>全局过渡曲线</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ════════ Layout ════════ -->
+<div id="container" class="docs-section">
+  <h2>布局</h2>
+
+  <h3>容器 .container</h3>
+  <p>最大宽度 1080px，水平居中，左右 padding 为 <code>--s-lg</code>。</p>
+  <div class="demo-box">
+    <div class="demo-code">&lt;div class="container"&gt;
+  &lt;!-- 内容被约束在 1080px 内 --&gt;
+&lt;/div&gt;</div>
+  </div>
+
+  <h3 id="grid">栅格 .grid</h3>
+  <p>基于 CSS Grid 的响应式栅格，自动换行。</p>
+  <div class="demo-box">
+    <div class="demo-preview">
+      <div class="grid grid-3" style="margin-bottom:0">
+        <div style="background:var(--c-bg-alt);padding:var(--s-md);border-radius:var(--r-sm);text-align:center">1</div>
+        <div style="background:var(--c-bg-alt);padding:var(--s-md);border-radius:var(--r-sm);text-align:center">2</div>
+        <div style="background:var(--c-bg-alt);padding:var(--s-md);border-radius:var(--r-sm);text-align:center">3</div>
+      </div>
+    </div>
+    <div class="demo-code">&lt;!-- 两列栅格（最小 280px 自动换行） --&gt;
+&lt;div class="grid grid-2"&gt; … &lt;/div&gt;
+
+&lt;!-- 三列栅格（最小 240px 自动换行） --&gt;
+&lt;div class="grid grid-3"&gt; … &lt;/div&gt;</div>
+  </div>
+
+  <h3 id="utilities">工具类</h3>
+  <table class="var-table">
+    <thead><tr><th>类名</th><th>效果</th></tr></thead>
+    <tbody>
+      <tr><td><code>.section</code></td><td>上下 padding: <code>--s-2xl</code>，用于页面区块</td></tr>
+      <tr><td><code>.text-center</code></td><td>文字居中</td></tr>
+      <tr><td><code>.text-muted</code></td><td>次要文字颜色</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ════════ Components ════════ -->
+<div id="components-section" class="docs-section">
+  <h2>组件</h2>
+</div>
+
+<!-- Nav -->
+<div id="nav-comp" class="docs-section">
+  <h3>导航栏 Nav</h3>
+  <p>固定在顶部的毛玻璃导航栏。滚动超过 50px 后自动添加 <code>.scrolled</code> 类，缩小 padding 并显示底部边框。</p>
+  <div class="demo-box">
+    <div class="demo-code">&lt;nav class="nav"&gt;
+  &lt;div class="container nav-inner"&gt;
+    &lt;a href="#" class="nav-logo"&gt;品牌名&lt;/a&gt;
+    &lt;ul class="nav-links"&gt;
+      &lt;li&gt;&lt;a href="#section1"&gt;链接一&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#section2"&gt;链接二&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</div>
+  </div>
+  <table class="var-table">
+    <thead><tr><th>类名</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td><code>.nav</code></td><td>固定定位，毛玻璃背景 <code>backdrop-filter: blur(12px)</code></td></tr>
+      <tr><td><code>.nav-inner</code></td><td>Flex 布局，两端对齐</td></tr>
+      <tr><td><code>.nav-logo</code></td><td>衬线字体品牌名</td></tr>
+      <tr><td><code>.nav-links</code></td><td>水平链接列表</td></tr>
+      <tr><td><code>.nav.scrolled</code></td><td>滚动后状态（JS 自动添加）</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Hero -->
+<div id="hero-comp" class="docs-section">
+  <h3>主视觉 Hero</h3>
+  <p>全屏高度的居中展示区域，适合放置标题、副标题和行动按钮。</p>
+  <div class="demo-box">
+    <div class="demo-preview" style="min-height:200px;display:flex;align-items:center;justify-content:center;text-align:center">
+      <div>
+        <div class="badge badge-accent" style="margin-bottom:var(--s-sm)">标签</div>
+        <h2 style="margin-bottom:var(--s-sm)">大标题</h2>
+        <p class="text-muted" style="margin:0 auto var(--s-md)">一段简短的描述文字</p>
+        <button class="btn btn-primary" data-toast="Hero 按钮被点击了">行动按钮</button>
+      </div>
+    </div>
+    <div class="demo-code">&lt;section class="hero"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="badge badge-accent"&gt;标签&lt;/div&gt;
+    &lt;h1&gt;大标题&lt;/h1&gt;
+    &lt;p&gt;一段简短的描述文字&lt;/p&gt;
+    &lt;a href="#" class="btn btn-primary"&gt;行动按钮&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</div>
+  </div>
+</div>
+
+<!-- Button -->
+<div id="btn-comp" class="docs-section">
+  <h3>按钮 Button</h3>
+  <p>三种风格：主要、默认、幽灵。支持 <code>&lt;button&gt;</code> 和 <code>&lt;a&gt;</code> 标签。</p>
+  <div class="demo-box">
+    <div class="demo-preview" style="display:flex;gap:var(--s-md);flex-wrap:wrap;align-items:center">
+      <button class="btn btn-primary" data-toast="主要按钮">主要 .btn-primary</button>
+      <button class="btn" data-toast="默认按钮">默认 .btn</button>
+      <button class="btn btn-ghost" data-toast="幽灵按钮">幽灵 .btn-ghost</button>
+    </div>
+    <div class="demo-code">&lt;button class="btn btn-primary"&gt;主要操作&lt;/button&gt;
+&lt;button class="btn"&gt;默认按钮&lt;/button&gt;
+&lt;button class="btn btn-ghost"&gt;幽灵按钮&lt;/button&gt;
+
+&lt;!-- 也可以用 a 标签 --&gt;
+&lt;a href="#" class="btn btn-primary"&gt;链接按钮&lt;/a&gt;</div>
+  </div>
+  <table class="var-table">
+    <thead><tr><th>类名</th><th>效果</th></tr></thead>
+    <tbody>
+      <tr><td><code>.btn</code></td><td>基础按钮（白底 + 边框）</td></tr>
+      <tr><td><code>.btn-primary</code></td><td>强调色填充</td></tr>
+      <tr><td><code>.btn-ghost</code></td><td>无边框透明，悬停显示背景</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Card -->
+<div id="card-comp" class="docs-section">
+  <h3>卡片 Card</h3>
+  <p>带边框和圆角的内容容器，悬停时上浮并显示阴影。</p>
+  <div class="demo-box">
+    <div class="demo-preview">
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-icon">◯</div>
+          <h3>卡片标题</h3>
+          <p>卡片描述文字，简洁明了。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">◆</div>
+          <h3>另一张卡片</h3>
+          <p>悬停试试看效果。</p>
+        </div>
+      </div>
+    </div>
+    <div class="demo-code">&lt;div class="card"&gt;
+  &lt;div class="card-icon"&gt;◯&lt;/div&gt;
+  &lt;h3&gt;卡片标题&lt;/h3&gt;
+  &lt;p&gt;卡片描述文字&lt;/p&gt;
+&lt;/div&gt;</div>
+  </div>
+  <table class="var-table">
+    <thead><tr><th>类名</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td><code>.card</code></td><td>白底容器，圆角 <code>--r-lg</code>，内边距 <code>--s-lg</code></td></tr>
+      <tr><td><code>.card-icon</code></td><td>图标区域，字号 1.8rem</td></tr>
+      <tr><td><code>.card:hover</code></td><td>上浮 2px + 中等阴影</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Badge -->
+<div id="badge-comp" class="docs-section">
+  <h3>徽章 Badge</h3>
+  <p>小型标签，适合标注状态或分类。</p>
+  <div class="demo-box">
+    <div class="demo-preview" style="display:flex;gap:var(--s-sm);flex-wrap:wrap">
+      <span class="badge">默认 .badge</span>
+      <span class="badge badge-accent">强调 .badge-accent</span>
+      <span class="badge badge-green">成功 .badge-green</span>
+    </div>
+    <div class="demo-code">&lt;span class="badge"&gt;默认&lt;/span&gt;
+&lt;span class="badge badge-accent"&gt;强调&lt;/span&gt;
+&lt;span class="badge badge-green"&gt;成功&lt;/span&gt;</div>
+  </div>
+</div>
+
+<!-- Accordion -->
+<div id="accordion-comp" class="docs-section">
+  <h3>手风琴 Accordion</h3>
+  <p>可折叠的内容面板，同一组内同时只展开一个。需要 JS 初始化。</p>
+  <div class="demo-box">
+    <div class="demo-preview">
+      <div class="accordion" id="demo-accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">
+            第一个问题
+            <span class="accordion-arrow">▼</span>
+          </button>
+          <div class="accordion-body">这是第一个问题的答案。点击其他项会自动关闭当前项。</div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            第二个问题
+            <span class="accordion-arrow">▼</span>
+          </button>
+          <div class="accordion-body">这是第二个问题的答案。动画由 CSS max-height 过渡实现。</div>
+        </div>
+      </div>
+    </div>
+    <div class="demo-code">&lt;div class="accordion"&gt;
+  &lt;div class="accordion-item"&gt;
+    &lt;button class="accordion-header"&gt;
+      问题标题
+      &lt;span class="accordion-arrow"&gt;▼&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="accordion-body"&gt;
+      答案内容
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- 更多 accordion-item … --&gt;
+&lt;/div&gt;
+
+&lt;!-- JS 初始化（app.js 已自动处理） --&gt;
+&lt;script&gt;
+  initAccordion(document.querySelector('.accordion'));
+&lt;/script&gt;</div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast-comp" class="docs-section">
+  <h3>消息提示 Toast</h3>
+  <p>右下角弹出的轻量提示，3 秒后自动消失。支持 JS 调用和 <code>data-toast</code> 声明式触发。</p>
+  <div class="demo-box">
+    <div class="demo-preview" style="display:flex;gap:var(--s-md);flex-wrap:wrap">
+      <button class="btn btn-primary" data-toast="这是一条 Toast 消息 🎉">点我弹出 Toast</button>
+      <button class="btn" onclick="ToastManager.show('通过 JS 调用的 Toast', 5000)">JS 调用（5秒）</button>
+    </div>
+    <div class="demo-code">&lt;!-- 方式一：声明式（data-toast 属性） --&gt;
+&lt;button class="btn" data-toast="提示内容"&gt;点击提示&lt;/button&gt;
+
+&lt;!-- 方式二：JS 调用 --&gt;
+&lt;script&gt;
+  ToastManager.show('消息内容');          // 默认 3 秒
+  ToastManager.show('消息内容', 5000);    // 自定义时长（毫秒）
+&lt;/script&gt;</div>
+  </div>
+</div>
+
+<!-- Divider -->
+<div id="divider-comp" class="docs-section">
+  <h3>分割线 Divider</h3>
+  <p>40px 宽的强调色短线，用于标题下方的装饰。</p>
+  <div class="demo-box">
+    <div class="demo-preview">
+      <h3 style="margin-bottom:var(--s-sm)">左对齐</h3>
+      <div class="divider"></div>
+      <br>
+      <h3 style="text-align:center;margin-bottom:var(--s-sm)">居中对齐</h3>
+      <div class="divider divider-center"></div>
+    </div>
+    <div class="demo-code">&lt;div class="divider"&gt;&lt;/div&gt;              &lt;!-- 左对齐 --&gt;
+&lt;div class="divider divider-center"&gt;&lt;/div&gt;  &lt;!-- 居中 --&gt;</div>
+  </div>
+</div>
+
+<!-- Code Block -->
+<div id="code-comp" class="docs-section">
+  <h3>代码块 Code Block</h3>
+  <p>深色背景的代码展示区域，使用 Fira Code 等宽字体。内置三种语法高亮类。</p>
+  <div class="demo-box">
+    <div class="demo-preview">
+      <div class="code-block"><span class="comment">// 一个简单的示例</span>
+<span class="keyword">function</span> greet(name) {
+  <span class="keyword">return</span> <span class="string">`你好，${name}！`</span>;
+}</div>
+    </div>
+    <div class="demo-code">&lt;div class="code-block"&gt;
+  &lt;span class="comment"&gt;// 注释&lt;/span&gt;
+  &lt;span class="keyword"&gt;function&lt;/span&gt; greet(name) {
+    &lt;span class="keyword"&gt;return&lt;/span&gt; &lt;span class="string"&gt;`你好`&lt;/span&gt;;
+  }
+&lt;/div&gt;</div>
+  </div>
+  <table class="var-table">
+    <thead><tr><th>类名</th><th>颜色</th><th>用途</th></tr></thead>
+    <tbody>
+      <tr><td><code>.comment</code></td><td style="color:#6a9955">#6a9955</td><td>注释</td></tr>
+      <tr><td><code>.keyword</code></td><td style="color:#c586c0">#c586c0</td><td>关键字</td></tr>
+      <tr><td><code>.string</code></td><td style="color:#ce9178">#ce9178</td><td>字符串</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Reveal -->
+<div id="reveal-comp" class="docs-section">
+  <h3>滚动动画 Reveal</h3>
+  <p>元素进入视口时淡入上移。基于 <code>IntersectionObserver</code>，只触发一次，性能友好。</p>
+  <div class="demo-box">
+    <div class="demo-preview">
+      <div class="reveal" style="background:var(--c-bg-alt);padding:var(--s-lg);border-radius:var(--r-md);text-align:center">
+        滚动到这里时我会淡入出现
+      </div>
+    </div>
+    <div class="demo-code">&lt;!-- 给任意元素添加 .reveal 类即可 --&gt;
+&lt;div class="reveal"&gt;
+  我会在滚动到视口时淡入
+&lt;/div&gt;
+
+&lt;!-- CSS 原理 --&gt;
+.reveal { opacity: 0; transform: translateY(24px); transition: 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+&lt;!-- JS 会自动通过 IntersectionObserver 添加 .visible --&gt;</div>
+  </div>
+</div>
+
+<!-- Typed -->
+<div id="typed-comp" class="docs-section">
+  <h3>打字机效果 Typed</h3>
+  <p>逐字显示文本，模拟打字效果。通过 <code>data-text</code> 属性声明内容。</p>
+  <div class="demo-box">
+    <div class="demo-preview" style="font-size:1.2rem;min-height:2em">
+      试试看：<span class="typed" data-text="这段文字会逐字出现"></span>
+    </div>
+    <div class="demo-code">&lt;span class="typed" data-text="要显示的文字"&gt;&lt;/span&gt;
+
+&lt;!-- 注意：app.js 只处理页面中第一个 .typed 元素 --&gt;
+&lt;!-- 如需多个打字机，需自行扩展 app.js --&gt;</div>
+  </div>
+</div>
+
+<!-- ════════ JavaScript API ════════ -->
+<div id="js-init" class="docs-section">
+  <h2>JavaScript</h2>
+
+  <h3>自动初始化</h3>
+  <p><code>app.js</code> 在 <code>DOMContentLoaded</code> 时自动调用以下初始化函数：</p>
+  <div class="demo-box">
+    <div class="demo-code"><span style="color:#6a9955">// app.js 自动执行：</span>
+initReveal();           <span style="color:#6a9955">// 滚动动画</span>
+initSmoothNav();        <span style="color:#6a9955">// 锚点平滑滚动</span>
+initNavScroll();        <span style="color:#6a9955">// 导航栏滚动效果</span>
+initAccordion(el);      <span style="color:#6a9955">// 所有 .accordion 容器</span>
+<span style="color:#6a9955">// data-toast 按钮自动绑定点击事件</span>
+<span style="color:#6a9955">// .typed 元素自动启动打字机</span></div>
+  </div>
+  <p>如果你只引入 <code>components.js</code> 而不引入 <code>app.js</code>，需要手动调用这些函数。</p>
+</div>
+
+<div id="js-api" class="docs-section">
+  <h3>API 参考</h3>
+  <table class="var-table">
+    <thead><tr><th>函数</th><th>参数</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><code>initAccordion(container)</code></td>
+        <td>container: 包含 <code>.accordion-item</code> 的 DOM 元素</td>
+        <td>初始化手风琴交互，同组互斥</td>
+      </tr>
+      <tr>
+        <td><code>ToastManager.show(msg, duration?)</code></td>
+        <td>msg: 字符串<br>duration: 毫秒，默认 3000</td>
+        <td>在右下角弹出消息提示</td>
+      </tr>
+      <tr>
+        <td><code>initReveal(selector?)</code></td>
+        <td>selector: CSS 选择器，默认 <code>'.reveal'</code></td>
+        <td>为匹配元素注册滚动动画</td>
+      </tr>
+      <tr>
+        <td><code>initSmoothNav()</code></td>
+        <td>无</td>
+        <td>为所有 <code>a[href^="#"]</code> 添加平滑滚动</td>
+      </tr>
+      <tr>
+        <td><code>initNavScroll(selector?)</code></td>
+        <td>selector: 导航栏选择器，默认 <code>'.nav'</code></td>
+        <td>监听滚动，切换 <code>.scrolled</code> 类</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</main>
+
+</div><!-- /docs-layout -->
+
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2026 2d 服社区 | 框架文档</p>
+  </div>
+</footer>
+
+<script src="js/components.js"></script>
+<script src="js/app.js"></script>
+<script>
+  // 初始化文档页的 demo 手风琴
+  const demoAcc = document.getElementById('demo-accordion');
+  if (demoAcc) initAccordion(demoAcc);
+
+  // 侧边栏高亮当前章节
+  (() => {
+    const links = document.querySelectorAll('.docs-sidebar a');
+    const sections = [];
+    links.forEach(a => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) sections.push({ el, a });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(a => a.classList.remove('active'));
+          const match = sections.find(s => s.el === entry.target);
+          if (match) match.a.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px' });
+
+    sections.forEach(s => observer.observe(s.el));
+  })();
+
+  // 文档页额外的 typed 元素
+  document.querySelectorAll('.docs-main .typed').forEach(el => {
+    const text = el.dataset.text;
+    el.textContent = '';
+    let i = 0;
+    const type = () => {
+      if (i < text.length) {
+        el.textContent += text[i++];
+        setTimeout(type, 80 + Math.random() * 40);
+      }
+    };
+    setTimeout(type, 600);
+  });
+</script>
+</body>
+</html>
