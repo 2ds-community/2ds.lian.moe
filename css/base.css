@@ -51,3 +51,21 @@ img { max-width: 100%; display: block; }
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 .reveal.visible { opacity: 1; transform: none; }
+
+/* Bilingual */
+[lang="en"] {
+  display: block;
+  font-size: calc(1em * var(--f-en-ratio));
+  color: var(--c-muted);
+  font-weight: 300;
+  margin-top: 0.2em;
+}
+h1 [lang="en"], h2 [lang="en"], h3 [lang="en"] {
+  font-family: var(--f-serif);
+  font-style: italic;
+}
+.bilingual-inline [lang="en"] {
+  display: inline;
+  margin-left: 0.4em;
+  font-size: 0.8em;
+}

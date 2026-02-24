@@ -68,6 +68,8 @@
   transition: background var(--ease);
 }
 .accordion-header:hover { background: var(--c-bg-alt); }
+.accordion-header [lang="en"] { margin-top: 0; }
+.accordion-header-text { flex: 1; text-align: left; }
 .accordion-arrow {
   transition: transform var(--ease); font-size: 0.8rem; color: var(--c-muted);
 }
@@ -79,7 +81,7 @@
   color: var(--c-muted); font-size: 0.95rem; line-height: 1.7;
 }
 .accordion-item.open .accordion-body {
-  max-height: 300px; padding: 0 var(--s-lg) var(--s-lg);
+  max-height: 400px; padding: 0 var(--s-lg) var(--s-lg);
 }
 
 /* ── Toast ── */
@@ -97,6 +99,7 @@
   pointer-events: none;
 }
 .toast.show { opacity: 1; transform: none; pointer-events: auto; }
+.toast [lang="en"] { font-size: 0.78rem; opacity: 0.7; margin-top: 0.15em; }
 
 /* ── Divider ── */
 .divider {
@@ -115,6 +118,7 @@
 }
 .hero h1 { margin-bottom: var(--s-md); }
 .hero p { color: var(--c-muted); font-size: 1.1rem; margin: 0 auto var(--s-lg); }
+.hero p[lang="en"] { font-size: 0.88rem; margin: 0 auto var(--s-md); }
 
 /* ── Code Block ── */
 .code-block {

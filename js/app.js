@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Toast 演示按钮
   document.querySelectorAll('[data-toast]').forEach(btn => {
     btn.addEventListener('click', () => {
-      ToastManager.show(btn.dataset.toast);
+      ToastManager.show(btn.dataset.toast, btn.dataset.toastEn);
     });
   });
 

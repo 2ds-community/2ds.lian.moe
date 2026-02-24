@@ -30,10 +30,21 @@ const ToastManager = (() => {
     return container;
   }
 
-  function show(message, duration = 3000) {
+  function show(message, messageEn, duration = 3000) {
     const toast = document.createElement('div');
     toast.className = 'toast';
-    toast.textContent = message;
+    if (messageEn) {
+      const zh = document.createElement('span');
+      zh.lang = 'zh';
+      zh.textContent = message;
+      const en = document.createElement('span');
+      en.lang = 'en';
+      en.textContent = messageEn;
+      toast.appendChild(zh);
+      toast.appendChild(en);
+    } else {
+      toast.textContent = message;
+    }
     getContainer().appendChild(toast);
 
     requestAnimationFrame(() => toast.classList.add('show'));
