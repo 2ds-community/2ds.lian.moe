@@ -1,12 +1,91 @@
-/*
-body {
-  padding-left: 18px;
-  padding-right: 18px;
-  margin: 0;
-  height: 100vh;
+/* ── L10n Dashboard Layout ── */
+html, body { height: 100%; overflow: hidden; }
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: calc(100vh - 57px);
+  margin-top: 57px;
+}
+
+.sidebar, .main-area {
+  overflow-y: auto;
+  padding: var(--s-lg);
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-border) transparent;
+}
+
+/* ── Sidebar ── */
+.sidebar {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  border-right: 1px solid var(--c-border);
+  padding-right: var(--s-xl);
 }
-*/
+.sidebar h1 { font-size: 1.6rem; margin-bottom: var(--s-sm); }
+.sidebar p { font-size: 0.92rem; }
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: var(--s-lg);
+}
+.sidebar-links a {
+  display: flex;
+  align-items: center;
+  gap: var(--s-sm);
+  padding: 0.45rem 0.7rem;
+  border-radius: var(--r-md);
+  font-size: 0.88rem;
+  color: var(--c-muted);
+  transition: all var(--ease);
+}
+.sidebar-links a:hover { background: var(--c-bg-alt); color: var(--c-text); }
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: var(--s-lg);
+  font-size: 0.8rem;
+  color: var(--c-muted);
+}
+
+/* ── Main Area ── */
+.main-area { padding-left: var(--s-xl); }
+.main-area h2 { margin-bottom: var(--s-lg); }
+
+/* ── Project Cards ── */
+.project-cards { display: flex; flex-direction: column; gap: var(--s-lg); }
+
+.project-card {
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: var(--s-lg);
+  transition: box-shadow var(--ease), transform var(--ease);
+}
+.project-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.project-card h3 { margin-bottom: var(--s-xs); }
+.project-card p { color: var(--c-muted); font-size: 0.92rem; margin-bottom: var(--s-md); }
+
+.project-links { display: flex; gap: var(--s-sm); flex-wrap: wrap; }
+.project-links a { font-size: 0.84rem; padding: 0.35rem 0.9rem; }
+
+.sub-projects {
+  margin-top: var(--s-md);
+  padding-top: var(--s-md);
+  border-top: 1px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  gap: var(--s-sm);
+  flex-wrap: wrap;
+}
+.sub-projects span { font-size: 0.85rem; color: var(--c-muted); }
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .dashboard { grid-template-columns: 1fr; height: auto; margin-top: 57px; }
+  html, body { overflow: auto; }
+  .sidebar { border-right: none; border-bottom: 1px solid var(--c-border); overflow-y: visible; }
+  .main-area { overflow-y: visible; }
+}

@@ -1,57 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8">
-  <title>2ds community l10n</title>
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/css/main.css" />
-  <link rel="stylesheet" href="/css/l10n.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2ds l10n community</title>
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/l10n.css">
 </head>
-<!--
-<body>
-  <h1>2ds l10n community</h1>
-  <p>A localization community from <a href="..">2dserver</a>, we specialize in translating Minecraft-related projects to Chinese from English.</p>
-  <div id="links">
-    <a href="https://github.com/2ds-community-l10n">📦github-organization</a>
-    <a href="contributing">📝contributing-guide</a>
-  </div>
-  <h2>Our Projects</h2>
-  <p><a href="society-sunlit-valley-l10n.html">「Society: Sunlit Valley」Localization (🇬🇧 -> 🇨🇳)</a></p>
-  <p>Contact us: lingling@yizhouuu.com</p>
-</body>
--->
+<body class="en-primary">
 
-<body>
-  <div class="container">
-    <div class="title">
-      <div class="content">
-        <h1>2ds l10n community</h1>
-        <a href="https://github.com/2ds-community-l10n">📦github-organization</a>
-        <a href="contributing">📝contributing-guide</a>
-        <a href="https://crowdin.com/profile/linglingthegreatspirit">💻crowdin</a>
-        <a href="https://www.notion.so/2dserver-l10n-notion-homepage-2d05f9958fb1800bb178c40172e30924">📂glossary-notion</a>
-        <p>We are a localization community from <a href="..">2dserver</a>, we specialize in translating Minecraft-related projects to Chinese from English!</p>
-        <p>We are happy to help if we can, please feel free to contact us!</p>
-        <p>📧Email: <a href="mailto:lingling@yizhouuu.com">lingling@yizhouuu.com</a></p>
+<!-- Nav -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo">2d 服社区</a>
+    <ul class="nav-links">
+      <li><a href="/dl-guide/index.html" title="Download">下载</a></li>
+      <li><a href="/article/index.html" title="Articles">文章站</a></li>
+      <li><a href="/l10n/index.html" title="l10n" style="color:var(--c-text)">本地化</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="dashboard">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="badge badge-accent" style="margin-bottom:var(--s-md)">Localization</div>
+    <h1>
+      <span lang="en">2ds L10n</span>
+      <span lang="zh">2d 服本地化社区</span>
+    </h1>
+    <p lang="en">Translating Minecraft-related projects from English to Chinese.</p>
+    <p lang="zh">我们目前主要是将 Minecraft 相关项目从英文翻译为中文！</p>
+
+    <nav class="sidebar-links">
+      <a href="https://github.com/2ds-community-l10n">📦 GitHub</a>
+      <a href="https://crowdin.com/profile/linglingthegreatspirit">💻 Crowdin Profile</a>
+      <a href="https://www.notion.so/2dserver-l10n-notion-homepage-2d05f9958fb1800bb178c40172e30924">📂 Notion Glossary</a>
+      <a href="contributing">📝 Contributing Guide</a>
+      <a href="mailto:lingling@yizhouuu.com">📧 lingling@yizhouuu.com</a>
+    </nav>
+
+
+    <div class="sidebar-footer">
+      <span lang="en">&copy; 2026 2ds Localization Community</span>
+      <span lang="zh">&copy; 2026 2d 服本地化社区</span>
+    </div>
+  </aside>
+
+  <!-- Main: Projects -->
+  <main class="main-area">
+
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span class="accordion-header-text">请看这里！</span>
+          <span class="accordion-arrow">▼</span>
+        </button>
+        <div class="accordion-body">
+          <p>家人们，我们使用 Crowdin 平台进行所有的翻译工作，请不要直接提交到 Github 仓库！不然会乱掉哒！</p>
+        </div>
       </div>
     </div>
-    <main class="main">
-      <div class="hint">
-        我们使用 crowdin 平台进行所有翻译工作，请最好不要直接向 github 仓库贡献！<br>
-        我们通过 notion 进行大部分诸如术语库方面的信息交流，里面有包含各个项目的注意事项、术语等。请在参与贡献前先阅读各个项目的 notion 文档（如果有的话）！<br>
-        在 crowdin 中进行翻译时，如果某个翻译有任何问题，可在 comments 里评论备注！
+
+    <h2>
+      <span lang="en">Projects</span>
+      <span lang="zh">项目</span>
+    </h2>
+
+    <div class="project-cards">
+      <!-- SSV ZH_HK -->    
+          <div class="project-card">
+            <div class="badge badge-green" style="margin-bottom:var(--s-sm)">EN → ZH_HK</div>
+            <h3>🏘️ Society: Sunlit Valley</h3>
+            <p>The Cantonese translation project for Society: Sunlit Valley. It's not yet started, waiting for more translators to start the zh-hk project!</p>
+            <p lang="zh">Society: Sunlit Valley 的繁體中文（香港）的翻譯項目！暫時還沒開工，因為沒有足夠的譯者，歡迎加入！可以來 discord 頻道交流！</p>
+            <div class="project-links">
+              <a href="https://discord.com/channels/1322431115339894925/1476046534956028014" class="btn">Discord</a>
+            </div>
+          </div>
+
+
+
+      <!-- SSV -->
+      <div class="project-card">
+        <div class="badge badge-green" style="margin-bottom:var(--s-sm)">EN → ZH_CN</div>
+        <h3>🏘️ Society: Sunlit Valley</h3>
+        <p>Game localization for「Society: Sunlit Valley」! The notion is for information exchange, and the crowdin is where we conduct the translation work.</p >
+        <p lang="zh">「阳光谷」的简体中文翻译项目！Notion 记录了本项目相关的信息（如术语等），Crowdin 进行实际翻译工作</p>
+        <div class="project-links">
+          <a href="https://crowdin.com/project/ssv/zh-CN" class="btn">Crowdin</a>
+          <a href="https://www.notion.so/Society-Sunlit-Valley-2d05f9958fb180febfa4d9a67b71caad" class="btn">Notion</a>
+          <a href="https://discord.com/channels/1322431115339894925/1476038304033149061" class="btn">Discord</a>
+        </div>
       </div>
-      <h2>Our Projects</h2>
-      <p>「Society: Sunlit Valley」Localization</p>
-        <a href="https://crowdin.com/project/ssv/zh-CN">💻crowdin</a>
-        <a href="https://www.notion.so/Society-Sunlit-Valley-2d05f9958fb180febfa4d9a67b71caad?source=copy_link">📂notion</a>
-      <h3>Minecraft Mod Localizations</h3>
-        <a href="https://crowdin.com/project/mcmods">💻crowdin</a>
-        <p>longwings</p>
-          <a href="https://crowdin.com/editor/mcmods/7/en-zhcn">💻crowdin</a>
-        <p>numismatics</p>
-          <a href="https://crowdin.com/editor/mcmods/383/en-zhcn">💻crowdin</a>
-    </main>
-  </div>
+
+      <!-- MC Mods -->
+      <div class="project-card">
+        <div class="badge badge-green" style="margin-bottom:var(--s-sm)">EN → ZH_CN</div>
+        <h3>⚒️ Minecraft Mods</h3>
+        <p>Mod localization projects! The mods translated currently are mostly for Society: Sunlit Valley</p>
+        <p lang="zh">Minecraft 模组翻译项目！目前翻译的模组基本都是阳光谷需要的模组</p>
+        <div class="project-links">
+          <a href="https://crowdin.com/project/mcmods" class="btn">Crowdin (all)</a>
+          <a href="https://discord.com/channels/1322431115339894925/1476038304033149061" class="btn">Discord</a>
+        </div>
+        <div class="sub-projects">
+          <span>longwings</span><a href="https://crowdin.com/editor/mcmods/7/en-zhcn" class="btn">Crowdin</a>
+          <span style="margin-left:var(--s-md)">numismatics</span><a href="https://crowdin.com/editor/mcmods/383/en-zhcn" class="btn">Crowdin</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<script src="/js/components.js"></script>
+<script>
+  initNavScroll();
+  initReveal();
+  document.querySelectorAll('.accordion').forEach(initAccordion);
+</script>
 </body>
+</html>

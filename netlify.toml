@@ -1,27 +1,12 @@
-[functions]
-  directory = "netlify/functions"
-  included_files = ["article/js/marked.js"]
+[build]
+  command = "node scripts/build-articles.js"
+  publish = "."
 
-[[redirects]]
-  from = "/article/p/:id"
-  to = "/.netlify/functions/article-post/:id"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/article/sitemap.xml"
-  to = "/.netlify/functions/article-sitemap"
-  status = 200
-  force = true
+[build.environment]
+  NODE_VERSION = "20"
 
 [[redirects]]
   from = "/article"
-  to = "/.netlify/functions/article-list"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/article/"
-  to = "/.netlify/functions/article-list"
-  status = 200
+  to = "/article/"
+  status = 301
   force = true

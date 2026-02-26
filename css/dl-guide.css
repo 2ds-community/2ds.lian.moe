@@ -1,0 +1,203 @@
+/* dl-guide: bilingual columns + step cards + progress */
+
+/* ── Bilingual two-column row ── */
+.bi-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-lg);
+}
+.bi-row [lang="zh"] {
+  font-family: var(--f-serif);
+  color: var(--c-text);
+  font-size: 1em;
+  line-height: 1.9;
+}
+.bi-row [lang="en"] {
+  font-family: var(--f-sans);
+  color: var(--c-text);
+  font-size: 1em;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.8;
+  border-left: 1px solid var(--c-border);
+  padding-left: var(--s-lg);
+}
+/* title row: no border, just side by side */
+.bi-title {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-lg);
+  align-items: baseline;
+}
+.bi-title [lang="zh"] {
+  font-family: var(--f-serif);
+}
+.bi-title [lang="en"] {
+  font-family: var(--f-sans);
+  font-style: normal;
+  font-weight: 400;
+  color: var(--c-muted);
+  font-size: 0.9em;
+}
+
+/* ── Progress bar ── */
+.progress-bar {
+  position: sticky;
+  top: 60px;
+  z-index: 10;
+  background: rgba(250, 249, 247, 0.92);
+  backdrop-filter: blur(8px);
+  padding: var(--s-md) 0;
+  border-bottom: 1px solid var(--c-border);
+}
+.progress-track {
+  height: 4px;
+  background: var(--c-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--c-accent);
+  border-radius: 2px;
+  width: 20%;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.progress-label {
+  font-size: 0.8rem;
+  color: var(--c-muted);
+  margin-top: var(--s-xs);
+  font-family: var(--f-sans);
+}
+
+/* ── Step cards ── */
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-lg);
+  padding: var(--s-xl) 0;
+}
+.step-card {
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  /* hidden state */
+  display: none;
+}
+.step-card.active {
+  display: block;
+  animation: stepIn 0.5s ease both;
+}
+@keyframes stepIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+.step-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* card inner layout */
+.step-header {
+  padding: var(--s-lg) var(--s-lg) 0;
+}
+.step-body {
+  padding: 0 var(--s-lg);
+}
+.step-body p { margin-bottom: var(--s-sm); }
+.step-body strong { font-weight: 600; }
+.step-body em { font-style: italic; }
+.step-footer {
+  padding: var(--s-md) var(--s-lg) var(--s-lg);
+}
+
+/* Step badge */
+.step-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-family: var(--f-sans);
+  color: var(--c-accent);
+  background: rgba(139, 115, 85, 0.08);
+  padding: 0.2em 0.7em;
+  border-radius: 999px;
+  margin-bottom: var(--s-md);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ── Continue button ── */
+.btn-continue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.55em 1.3em;
+  font-family: var(--f-sans);
+  font-size: 0.9rem;
+  color: var(--c-white);
+  background: var(--c-accent);
+  border: none;
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: background var(--ease), transform 0.15s ease;
+}
+.btn-continue:hover {
+  background: var(--c-accent-hover);
+  transform: translateY(-1px);
+}
+.btn-continue:active { transform: translateY(0); }
+.btn-continue .sep {
+  opacity: 0.5;
+  margin: 0 0.15em;
+}
+
+/* ── Download links ── */
+.download-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-sm);
+  margin-top: var(--s-md);
+}
+
+/* ── Note block ── */
+.step-note {
+  margin: var(--s-md) var(--s-lg) var(--s-lg);
+  padding: var(--s-md);
+  background: var(--c-bg-alt);
+  border-radius: var(--r-md);
+  font-size: 0.85rem;
+  color: var(--c-muted);
+  line-height: 1.7;
+}
+.step-note .bi-row [lang="zh"],
+.step-note .bi-row [lang="en"] {
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+  .bi-row {
+    grid-template-columns: 1fr;
+    gap: var(--s-sm);
+  }
+  .bi-row [lang="en"] {
+    border-left: none;
+    padding-left: 0;
+    padding-top: var(--s-sm);
+    border-top: 1px solid var(--c-border);
+  }
+  .bi-title {
+    grid-template-columns: 1fr;
+    gap: 0.2em;
+  }
+  .step-header, .step-body, .step-footer {
+    padding-left: var(--s-md);
+    padding-right: var(--s-md);
+  }
+  .step-note {
+    margin-left: var(--s-md);
+    margin-right: var(--s-md);
+  }
+  .progress-bar { top: 52px; }
+}

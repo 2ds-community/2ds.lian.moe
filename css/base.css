@@ -69,3 +69,35 @@ h1 [lang="en"], h2 [lang="en"], h3 [lang="en"] {
   margin-left: 0.4em;
   font-size: 0.8em;
 }
+
+/* ── English-primary bilingual (for l10n page) ── */
+.en-primary [lang="en"] {
+  display: block;
+  font-size: 1em;
+  color: var(--c-text);
+  font-weight: 400;
+  margin-top: 0;
+}
+.en-primary h1 [lang="en"],
+.en-primary h2 [lang="en"],
+.en-primary h3 [lang="en"] {
+  font-style: normal;
+}
+.en-primary [lang="zh"] {
+  display: block;
+  font-size: calc(1em * var(--f-en-ratio));
+  color: var(--c-muted);
+  font-weight: 300;
+  margin-top: 0.2em;
+}
+.en-primary h1 [lang="zh"],
+.en-primary h2 [lang="zh"],
+.en-primary h3 [lang="zh"] {
+  font-family: var(--f-serif);
+  font-style: italic;
+}
+.en-primary .bilingual-inline [lang="zh"] {
+  display: inline;
+  margin-left: 0.4em;
+  font-size: 0.8em;
+}

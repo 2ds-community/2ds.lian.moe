@@ -58,7 +58,7 @@
 .badge-green { background: rgba(107,143,113,0.12); color: var(--c-green); }
 
 /* ── Accordion ── */
-.accordion { border: 1px solid var(--c-border); border-radius: var(--r-md); overflow: hidden; }
+.accordion { border: 1px solid var(--c-border); border-radius: var(--r-md); overflow: hidden; max-width: 600px; }
 .accordion-item + .accordion-item { border-top: 1px solid var(--c-border); }
 .accordion-header {
   width: 100%; padding: var(--s-md) var(--s-lg);
@@ -78,8 +78,9 @@
   max-height: 0; overflow: hidden;
   transition: max-height 0.4s ease, padding 0.4s ease;
   padding: 0 var(--s-lg);
-  color: var(--c-muted); font-size: 0.95rem; line-height: 1.7;
+  color: var(--c-muted); font-size: 1.1rem; line-height: 1.7;
 }
+.accordion-body p { max-width: 65ch; margin: 0 auto; }
 .accordion-item.open .accordion-body {
   max-height: 400px; padding: 0 var(--s-lg) var(--s-lg);
 }
